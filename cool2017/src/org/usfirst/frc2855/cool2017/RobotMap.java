@@ -22,6 +22,8 @@ import com.ctre.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -55,6 +57,7 @@ public class RobotMap {
     public static DoubleSolenoid gearInOutSolenoid;
     public static DoubleSolenoid gearPinchSolenoid;
     public static ADXRS453Gyro gyro;
+    public static SerialPort serialTest;
     public static void init() {
     	CameraServer.getInstance().startAutomaticCapture();
     	
@@ -116,7 +119,11 @@ public class RobotMap {
         shooterTalon.setProfile(0);
         
         gyro = new ADXRS453Gyro();
+        
+        serialTest = new SerialPort(9600, edu.wpi.first.wpilibj.SerialPort.Port.kUSB1);
 
+        
+        
         
     }
 }
