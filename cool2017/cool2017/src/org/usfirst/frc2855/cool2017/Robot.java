@@ -41,6 +41,7 @@ public class Robot extends IterativeRobot {
     public static Gearthingy gearthingy;
     public static GearArm geararm;
     public static GearGrab geargrab;
+    public static LEDArduino leds;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -55,6 +56,7 @@ public class Robot extends IterativeRobot {
         gearthingy = new Gearthingy();
         geararm = new GearArm();
         geargrab = new GearGrab();
+        leds = new LEDArduino();
 
         UsbCamera cam0 = CameraServer.getInstance().startAutomaticCapture(0);
         UsbCamera cam1 = CameraServer.getInstance().startAutomaticCapture(1);

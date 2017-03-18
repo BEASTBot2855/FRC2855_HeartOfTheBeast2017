@@ -20,6 +20,7 @@ import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SerialPort;
@@ -58,6 +59,10 @@ public class RobotMap {
     public static DoubleSolenoid gearPinchSolenoid;
     public static ADXRS453Gyro gyro;
     public static SerialPort serialTest;
+    public static DigitalOutput ledshooter;
+    public static DigitalOutput ledintake;
+    public static DigitalOutput ledflash;
+    public static DigitalOutput ledbreathe;
     public static void init() {
     	CameraServer.getInstance().startAutomaticCapture();
     	
@@ -122,7 +127,17 @@ public class RobotMap {
         
         serialTest = new SerialPort(9600, edu.wpi.first.wpilibj.SerialPort.Port.kUSB1);
 
+        ledshooter = new DigitalOutput(1);
+        LiveWindow.addActuator("LED Shooter", "LED Shooter", ledshooter);
         
+        ledintake = new DigitalOutput(2);
+        LiveWindow.addActuator("LED Intake", "LED Intake", ledintake);
+        
+        ledflash = new DigitalOutput(3);
+        LiveWindow.addActuator("LED Flash", "LED Flash", ledflash);
+        
+        ledbreathe = new DigitalOutput(4);
+        LiveWindow.addActuator("LED Breathe", "LED Breathe", ledbreathe);
         
         
     }

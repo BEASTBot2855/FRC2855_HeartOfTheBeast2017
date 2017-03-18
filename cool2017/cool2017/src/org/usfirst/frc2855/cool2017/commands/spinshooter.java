@@ -43,11 +43,12 @@ public class spinshooter extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.shooter.shooterActivate(((Robot.oi.joystick2.getThrottle()+1)/2)*100);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.shooter.shooterActivate(((Robot.oi.joystick2.getThrottle()+1)/2)*100);
+    	Robot.leds.LEDShooterActivate();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -58,6 +59,7 @@ public class spinshooter extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.shooter.shooterActivate(0);
+    	Robot.leds.LEDShooterDeActivate();
     }
 
     // Called when another command which requires one or more of the same

@@ -49,8 +49,7 @@ public class IntakeControl extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.ballintake.grabBall(m_intakeSpeed);
-    	
-    	
+    	Robot.leds.LEDIntakeActivate();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -61,6 +60,7 @@ public class IntakeControl extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.ballintake.grabBall(0);//stop motor
+    	Robot.leds.LEDIntakeDeActivate();
     }
 
     // Called when another command which requires one or more of the same

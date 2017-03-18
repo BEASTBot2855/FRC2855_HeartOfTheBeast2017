@@ -61,7 +61,9 @@ public class OI {
     public JoystickButton gearpinch;
     public JoystickButton gearrelease;
     public Joystick joystick2;
-
+    public JoystickButton ledflash;
+    public JoystickButton ledbreathe;
+    
     public OI() {
 
         joystick2 = new Joystick(1);
@@ -85,7 +87,10 @@ public class OI {
         gearrelease.whenPressed(new GearRelease());
         climbButton = new JoystickButton(joystick1, 1);
         climbButton.whileHeld(new climb());
-        
+        ledflash = new JoystickButton(joystick1, 8);
+        ledflash.whileHeld(new LEDFlash());
+        ledbreathe = new JoystickButton(joystick1, 9);
+        ledbreathe.whileHeld(new LEDBreathe());
         
 
         SmartDashboard.putData("Gear up n down: down", new Gearupndown(false));
