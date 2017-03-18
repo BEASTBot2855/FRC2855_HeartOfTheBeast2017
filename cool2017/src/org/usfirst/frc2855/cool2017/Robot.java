@@ -40,6 +40,7 @@ public class Robot extends IterativeRobot {
     public static climbingarm climbingarm;
     public static Gearthingy gearthingy;
     public static GearArm geararm;
+    public static GearGrab geargrab;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -53,6 +54,7 @@ public class Robot extends IterativeRobot {
         climbingarm = new climbingarm();
         gearthingy = new Gearthingy();
         geararm = new GearArm();
+        geargrab = new GearGrab();
 
         UsbCamera cam0 = CameraServer.getInstance().startAutomaticCapture(0);
         UsbCamera cam1 = CameraServer.getInstance().startAutomaticCapture(1);
