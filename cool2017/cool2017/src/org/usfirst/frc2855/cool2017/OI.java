@@ -93,13 +93,12 @@ public class OI {
         SmartDashboard.putData("Intake Control: ballIn", new IntakeControl(1));
         SmartDashboard.putData("Intake Control: ballOut", new IntakeControl(-1));
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-        SmartDashboard.putData("mechanum drive", new mechanumdrive());
         SmartDashboard.putData("climb", new climb());
         SmartDashboard.putData("Auto Command Group", new AutoCommandGroup());
         SmartDashboard.putData("Drive to Line", new DrivetoLine());
         SmartDashboard.putData("Strafe to wall: Red", new Strafetowall(false));
         SmartDashboard.putData("Strafe to wall: Blue", new Strafetowall(true));
-        SmartDashboard.putData("spin shooter", new spinshooter());
+        SmartDashboard.putData("Spin shooter", new spinshooter());
         SmartDashboard.putData("Unclimb", new Unclimb());
         SmartDashboard.putData("Calibrate Gyro", new calibrateGyro());
     }
