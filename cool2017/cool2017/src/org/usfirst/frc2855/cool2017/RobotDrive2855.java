@@ -221,7 +221,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param leftStick  The joystick to control the left side of the robot.
    * @param rightStick The joystick to control the right side of the robot.
    */
-  public void tankDrive(GenericHID leftStick, GenericHID rightStick) {
+  /*public void tankDrive(GenericHID leftStick, GenericHID rightStick) {
     if (leftStick == null || rightStick == null) {
       throw new NullPointerException("Null HID provided");
     }
@@ -236,7 +236,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param rightStick    The joystick to control the right side of the robot.
    * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
    */
-  public void tankDrive(GenericHID leftStick, GenericHID rightStick, boolean squaredInputs) {
+  /*public void tankDrive(GenericHID leftStick, GenericHID rightStick, boolean squaredInputs) {
     if (leftStick == null || rightStick == null) {
       throw new NullPointerException("Null HID provided");
     }
@@ -252,7 +252,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param rightStick The Joystick object to use for the right side of the robot.
    * @param rightAxis  The axis to select on the right side Joystick object.
    */
-  public void tankDrive(GenericHID leftStick, final int leftAxis, GenericHID rightStick,
+  /*public void tankDrive(GenericHID leftStick, final int leftAxis, GenericHID rightStick,
                         final int rightAxis) {
     if (leftStick == null || rightStick == null) {
       throw new NullPointerException("Null HID provided");
@@ -270,7 +270,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param rightAxis     The axis to select on the right side Joystick object.
    * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
    */
-  public void tankDrive(GenericHID leftStick, final int leftAxis, GenericHID rightStick,
+  /*public void tankDrive(GenericHID leftStick, final int leftAxis, GenericHID rightStick,
                         final int rightAxis, boolean squaredInputs) {
     if (leftStick == null || rightStick == null) {
       throw new NullPointerException("Null HID provided");
@@ -286,7 +286,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param rightValue    The value of the right stick.
    * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
    */
-  public void tankDrive(double leftValue, double rightValue, boolean squaredInputs) {
+  /*public void tankDrive(double leftValue, double rightValue, boolean squaredInputs) {
 
     if (!kTank_Reported) {
       HAL.report(tResourceType.kResourceType_RobotDrive, getNumMotors(),
@@ -320,7 +320,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param leftValue  The value of the left stick.
    * @param rightValue The value of the right stick.
    */
-  public void tankDrive(double leftValue, double rightValue) {
+  /*public void tankDrive(double leftValue, double rightValue) {
     tankDrive(leftValue, rightValue, true);
   }
 
@@ -334,7 +334,7 @@ public class RobotDrive2855 implements MotorSafety {
    *                      strafe rate.
    * @param squaredInputs If true, the sensitivity will be decreased for small values
    */
-  public void arcadeDrive(GenericHID stick, boolean squaredInputs) {
+  /*public void arcadeDrive(GenericHID stick, boolean squaredInputs) {
     // simply call the full-featured arcadeDrive with the appropriate values
     arcadeDrive(stick.getY(), stick.getX(), squaredInputs);
   }
@@ -347,7 +347,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param stick The joystick to use for Arcade single-stick driving. The Y-axis will be selected
    *              for forwards/backwards and the X-axis will be selected for strafe rate.
    */
-  public void arcadeDrive(GenericHID stick) {
+  /*public void arcadeDrive(GenericHID stick) {
     arcadeDrive(stick, true);
   }
 
@@ -363,7 +363,7 @@ public class RobotDrive2855 implements MotorSafety {
    *                      (typically X_AXIS)
    * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
    */
-  public void arcadeDrive(GenericHID moveStick, final int moveAxis, GenericHID rotateStick,
+  /*public void arcadeDrive(GenericHID moveStick, final int moveAxis, GenericHID rotateStick,
                           final int rotateAxis, boolean squaredInputs) {
     double moveValue = moveStick.getRawAxis(moveAxis);
     double rotateValue = rotateStick.getRawAxis(rotateAxis);
@@ -382,7 +382,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param rotateAxis  The axis on the strafe object to use for the rotate right/left (typically
    *                    X_AXIS)
    */
-  public void arcadeDrive(GenericHID moveStick, final int moveAxis, GenericHID rotateStick,
+  /*public void arcadeDrive(GenericHID moveStick, final int moveAxis, GenericHID rotateStick,
                           final int rotateAxis) {
     arcadeDrive(moveStick, moveAxis, rotateStick, rotateAxis, true);
   }
@@ -395,7 +395,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param rotateValue   The value to use for the rotate right/left
    * @param squaredInputs If set, decreases the sensitivity at low speeds
    */
-  public void arcadeDrive(double moveValue, double rotateValue, boolean squaredInputs) {
+  /*public void arcadeDrive(double moveValue, double rotateValue, boolean squaredInputs) {
     // local variables to hold the computed PWM values for the motors
     if (!kArcadeStandard_Reported) {
       HAL.report(tResourceType.kResourceType_RobotDrive, getNumMotors(),
@@ -452,7 +452,7 @@ public class RobotDrive2855 implements MotorSafety {
    * @param moveValue   The value to use for fowards/backwards
    * @param rotateValue The value to use for the rotate right/left
    */
-  public void arcadeDrive(double moveValue, double rotateValue) {
+  /*public void arcadeDrive(double moveValue, double rotateValue) {
     arcadeDrive(moveValue, rotateValue, true);
   }
 
