@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GearRelease extends Command {
+public class AutoReverse extends Command {
 
-    public GearRelease() {
+	private static int t = 0;
+    public AutoReverse() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.geararm);
     }
 
     // Called just before this Command runs the first time
@@ -21,17 +21,22 @@ public class GearRelease extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.geararm.gearUnPinch();
+    	Robot.drive.driveIntake();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if (t == 400) { // stop at 4 secs
+        	return true;
+        } else {
+        	t += 20; // add 20 msecs to t b/c thread runs approx. every 20 msecs
+        	return false;
+        }
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.geararm.gearPinchNull();
+    	Robot.drive.stop();
     }
 
     // Called when another command which requires one or more of the same
