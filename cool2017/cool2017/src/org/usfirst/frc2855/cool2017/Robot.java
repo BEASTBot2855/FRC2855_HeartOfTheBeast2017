@@ -38,7 +38,6 @@ public class Robot extends IterativeRobot {
     public static shooter shooter;
     public static drive drive;
     public static climbingarm climbingarm;
-    public static Gearthingy gearthingy;
     public static PneumaticGearArm geararm;
     public static LEDArduino leds;
 
@@ -52,7 +51,6 @@ public class Robot extends IterativeRobot {
         shooter = new shooter();
         drive = new drive();
         climbingarm = new climbingarm();
-        gearthingy = new Gearthingy();
         geararm = new PneumaticGearArm();
         leds = new LEDArduino();
 

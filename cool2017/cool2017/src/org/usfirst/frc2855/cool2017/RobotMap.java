@@ -23,7 +23,6 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.I2C;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.Spark;
@@ -42,7 +41,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class RobotMap {
     public static SpeedController ballintakeintaketalon;
+    
     public static CANTalon shooterTalon;
+    
     public static CANTalon driveleftreartalon;
     public static CANTalon driveleftreartalon2;
     public static CANTalon driveleftfronttalon;
@@ -50,23 +51,30 @@ public class RobotMap {
     public static CANTalon driverightreartalon;
     public static CANTalon driverightreartalon2;
     public static RobotDrive2855 driveRobotDrive41;
+    
     public static SpeedController climbingarmclimbingmotor;
-    public static SpeedController gearthingygearmotor;
+    
     public static SpeedController agitator;
-    public static BuiltInAccelerometer accelerometer;
+    
     public static CameraServer camera;
-    public static edu.wpi.first.wpilibj.Ultrasonic Ultrasonic;
+    
+    //public static edu.wpi.first.wpilibj.Ultrasonic Ultrasonic;
+    
     public static DoubleSolenoid gearInOutSolenoid;
     public static DoubleSolenoid gearPinchSolenoid;
+    
     public static ADXRS453Gyro gyro;
-    public static SerialPort serialTest;
+    
     public static DigitalOutput ledshooter;
     public static DigitalOutput ledintake;
     public static DigitalOutput ledflash;
     public static DigitalOutput ledbreathe;
-    public static I2C pixyarduino;
+    
+    //public static I2C pixyarduino;
     public static void init() {
+    	
     	CameraServer.getInstance().startAutomaticCapture();
+    	
     	
         agitator = new Talon(4);
         LiveWindow.addActuator("agitator", "agitator", (Talon) agitator);
@@ -76,6 +84,8 @@ public class RobotMap {
         
         shooterTalon = new CANTalon(7);
         LiveWindow.addActuator("shooter", "shooter talon", shooterTalon);
+        
+        
         
         driveleftreartalon = new CANTalon(4);
         LiveWindow.addActuator("drive", "left rear talon", driveleftreartalon);
@@ -105,11 +115,11 @@ public class RobotMap {
 
         driveRobotDrive41.setInvertedMotor(RobotDrive2855.MotorType.kFrontRight, true);
         driveRobotDrive41.setInvertedMotor(RobotDrive2855.MotorType.kFrontLeft, true);
+        
+        
         climbingarmclimbingmotor = new Talon(6);
         LiveWindow.addActuator("climbing arm", "climbing motor", (Talon) climbingarmclimbingmotor);
         
-        gearthingygearmotor = new Spark(1);
-        LiveWindow.addActuator("Gear thingy", "gear motor", (Spark) gearthingygearmotor);
         
         gearInOutSolenoid = new DoubleSolenoid(0, 0, 1);
         LiveWindow.addActuator("Gear In Out Solenoid", "Gear Arm Double Solenoid", gearInOutSolenoid);
@@ -117,7 +127,9 @@ public class RobotMap {
         gearPinchSolenoid = new DoubleSolenoid(0, 2, 3);
         LiveWindow.addActuator("Gear Pinch", "Gear Pinch Double Solenoid", gearPinchSolenoid);
         
-        Ultrasonic = new edu.wpi.first.wpilibj.Ultrasonic(8, 9);
+        
+        //Ultrasonic = new edu.wpi.first.wpilibj.Ultrasonic(8, 9);
+        
         
         shooterTalon.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
         shooterTalon.reverseSensor(false);
@@ -125,8 +137,10 @@ public class RobotMap {
         shooterTalon.configPeakOutputVoltage(+12.0f, -0.0f);
         shooterTalon.setProfile(0);
         
+        
         gyro = new ADXRS453Gyro();
 
+        
         ledshooter = new DigitalOutput(1);
         LiveWindow.addActuator("LED Shooter", "LED Shooter", ledshooter);
         
@@ -139,7 +153,8 @@ public class RobotMap {
         ledbreathe = new DigitalOutput(4);
         LiveWindow.addActuator("LED Breathe", "LED Breathe", ledbreathe);
         
-        pixyarduino = new I2C(edu.wpi.first.wpilibj.I2C.Port.kOnboard, 8);
+        
+        //pixyarduino = new I2C(edu.wpi.first.wpilibj.I2C.Port.kOnboard, 8);
         
     }
 }

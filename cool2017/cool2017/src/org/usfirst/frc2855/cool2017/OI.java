@@ -93,14 +93,10 @@ public class OI {
         ledbreathe.whileHeld(new LEDBreathe());
         
 
-        SmartDashboard.putData("Gear up n down: down", new Gearupndown(false));
-        SmartDashboard.putData("Gear up n down: up", new Gearupndown(true));
         SmartDashboard.putData("Intake Control: ballIn", new IntakeControl(1));
         SmartDashboard.putData("Intake Control: ballOut", new IntakeControl(-1));
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("climb", new climb());
-        SmartDashboard.putData("Auto Command Group", new AutoCommandGroup());
-        SmartDashboard.putData("Drive to Line", new DrivetoLine());
+        SmartDashboard.putData("Run Auto", new AutoGearCommandGroup());
         SmartDashboard.putData("Strafe to wall: Red", new Strafetowall(false));
         SmartDashboard.putData("Strafe to wall: Blue", new Strafetowall(true));
         SmartDashboard.putData("Spin shooter", new spinshooter());

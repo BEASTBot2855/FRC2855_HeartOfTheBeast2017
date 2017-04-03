@@ -26,8 +26,8 @@ public class AutoGearCommandGroup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new AutoGearCommand());
-    	addSequential(new GearRelease());
-    	Timer.delay(0.05);
+    	addSequential(new AutoGearRelease());
+    	Timer.delay(1.0);
     	addSequential(new AutoReverse());
     }
 }
