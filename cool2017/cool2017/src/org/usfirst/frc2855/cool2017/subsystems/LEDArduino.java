@@ -22,35 +22,35 @@ public class LEDArduino extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void LEDShooterActivate() {
+    public void LEDShooterActivate() { //DIO 1
     	shooter.set(true);
     }
     
-    public void LEDIntakeActivate() {
+    public void LEDIntakeActivate() { //DIO 2
     	intake.set(true);
     }
     
-    public void LEDFlashActivate() {
+    public void LEDFlashActivate() { //DIO 3
     	flash.set(true);
     }
     
-    public void LEDBreatheActivate() {
+    public void LEDBreatheActivate() { //DIO 4
     	breathe.set(true);
     }
     
-    public void LEDShooterDeActivate() {
+    public void LEDShooterDeActivate() { //DIO 1
     	shooter.set(false);
     }
     
-    public void LEDIntakeDeActivate() {
+    public void LEDIntakeDeActivate() { //DIO 2
     	intake.set(false);
     }
     
-    public void LEDFlashDeActivate() {
+    public void LEDFlashDeActivate() { //DIO 3
     	flash.set(false);
     }
     
-    public void LEDBreatheDeActivate() {
+    public void LEDBreatheDeActivate() { //DIO 4
     	breathe.set(false);
     }
 }

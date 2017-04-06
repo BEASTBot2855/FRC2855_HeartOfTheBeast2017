@@ -58,7 +58,7 @@ public class RobotMap {
     
     public static CameraServer camera;
     
-    //public static edu.wpi.first.wpilibj.Ultrasonic Ultrasonic;
+    public static edu.wpi.first.wpilibj.Ultrasonic Ultrasonic;
     
     public static DoubleSolenoid gearInOutSolenoid;
     public static DoubleSolenoid gearPinchSolenoid;
@@ -128,7 +128,7 @@ public class RobotMap {
         LiveWindow.addActuator("Gear Pinch", "Gear Pinch Double Solenoid", gearPinchSolenoid);
         
         
-        //Ultrasonic = new edu.wpi.first.wpilibj.Ultrasonic(8, 9);
+        Ultrasonic = new edu.wpi.first.wpilibj.Ultrasonic(8, 9);
         
         
         shooterTalon.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
@@ -136,6 +136,7 @@ public class RobotMap {
         shooterTalon.configNominalOutputVoltage(+0.0f, -0.0f);
         shooterTalon.configPeakOutputVoltage(+12.0f, -0.0f);
         shooterTalon.setProfile(0);
+        
         
         
         gyro = new ADXRS453Gyro();

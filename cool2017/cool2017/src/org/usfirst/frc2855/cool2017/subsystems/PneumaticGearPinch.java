@@ -8,28 +8,27 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class PneumaticGearArm extends Subsystem {
+public class PneumaticGearPinch extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	 
-	 private final DoubleSolenoid armDoubleSolenoid = RobotMap.gearPinchSolenoid;
+	 private final DoubleSolenoid gearDoubleSolenoid = RobotMap.gearInOutSolenoid;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void gearIn() {
-    	armDoubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+    public void gearPinch() {
+    	gearDoubleSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
     
-    public void gearOut() {
-    	armDoubleSolenoid.set(DoubleSolenoid.Value.kForward);
+    public void gearUnPinch() {
+    	gearDoubleSolenoid.set(DoubleSolenoid.Value.kForward);
     }
     
-    public void gearInOutNull() {
-    	armDoubleSolenoid.set(DoubleSolenoid.Value.kOff);
+    public void gearPinchNull() {
+    	gearDoubleSolenoid.set(DoubleSolenoid.Value.kOff);
     }
 }
 
