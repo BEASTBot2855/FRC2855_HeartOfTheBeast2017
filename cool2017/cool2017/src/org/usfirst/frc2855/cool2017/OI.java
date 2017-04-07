@@ -79,27 +79,27 @@ public class OI {
         shooterbutton.whileHeld(new spinshooter());
         
         
-        ballin = new JoystickButton(joystick2, 2);
+        ballin = new JoystickButton(joystick1, 3);
         ballin.whileHeld(new IntakeControl(1));
         
-        ballOut = new JoystickButton(joystick2, 3);
+        ballOut = new JoystickButton(joystick1, 6);
         ballOut.whileHeld(new IntakeControl(-1));
         
         
-        gearpinch = new JoystickButton(joystick1, 2);
+        gearpinch = new JoystickButton(joystick2, 4);
         gearpinch.whenPressed(new GearPinch());
         
-        gearrelease = new JoystickButton(joystick1, 6);
+        gearrelease = new JoystickButton(joystick2, 1);
         gearrelease.whenPressed(new GearRelease());
         
-        gearin = new JoystickButton(joystick2, 5);
+        gearin = new JoystickButton(joystick1, 1);
         gearin.whileHeld(new GearIn());
         
-        gearout = new JoystickButton(joystick2, 4);
+        gearout = new JoystickButton(joystick1, 2);
         gearout.whileHeld(new GearOut());
         
         
-        climbButton = new JoystickButton(joystick1, 1);
+        climbButton = new JoystickButton(joystick1, 5);
         climbButton.whileHeld(new climb());
         
         

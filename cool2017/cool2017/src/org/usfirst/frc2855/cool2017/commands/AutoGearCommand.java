@@ -2,6 +2,7 @@ package org.usfirst.frc2855.cool2017.commands;
 
 import org.usfirst.frc2855.cool2017.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -9,9 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoGearCommand extends Command {
 
-	private final double time = 1.0; // enter number of seconds to run auto
-	private static double codeTime = 0;
-	private static int t = 0;
+	
     public AutoGearCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -19,7 +18,6 @@ public class AutoGearCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	codeTime = (int) time*1000;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -29,10 +27,9 @@ public class AutoGearCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t >= codeTime) { 
+        if (Timer.getMatchTime() >= 2) { 
         	return true;
         } else {
-        	t += 5; // add 5 milliseconds to t because thread runs approximately every 5 milliseconds
         	return false;
         }
     	

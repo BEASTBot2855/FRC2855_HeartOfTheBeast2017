@@ -57,24 +57,24 @@ public class drive extends Subsystem {
     }
     
     public void drivezRobot(double x, double y, double strafe) {
-    	robotDrive41.mecanumDrive_Cartesian(x, y, strafe, gyro.getAngle());
+    	robotDrive41.mecanumDrive_Cartesian(x, y, strafe, 0);
     }
     
     // TODO figure out exactly which way is which, these values are arbitrary
     public void driveShooter(){
-    	robotDrive41.mecanumDrive_Cartesian(1, 0, 1, gyro.getAngle());
+    	robotDrive41.mecanumDrive_Cartesian(0, 0, 1, 0);
     }
     
     public void driveGear(){
-    	robotDrive41.mecanumDrive_Cartesian(-1, 0, 1, gyro.getAngle());
+    	robotDrive41.mecanumDrive_Cartesian(0, -1, 0.25, 0);
     }
     
     public void driveIntake(){
-    	robotDrive41.mecanumDrive_Cartesian(1, 0, -1, gyro.getAngle());
+    	robotDrive41.mecanumDrive_Cartesian(0, 1, 0, 0);
     }
     
     public void driveClimber(){
-    	robotDrive41.mecanumDrive_Cartesian(-1, 0, -1, gyro.getAngle());
+    	robotDrive41.mecanumDrive_Cartesian(0, 0, -1, 0);
     }
     
     public void stop(){

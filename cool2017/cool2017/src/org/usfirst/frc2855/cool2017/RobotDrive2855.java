@@ -506,11 +506,8 @@ public class RobotDrive2855 implements MotorSafety {
     m_rearRightMotor.set(wheelSpeeds[MotorType.kRearRight.value] * m_maxOutput);
     m_rearLeftMotor2.set(wheelSpeeds[MotorType.kRearLeft2.value] * m_maxOutput);
     m_rearRightMotor2.set(wheelSpeeds[MotorType.kRearRight2.value] * m_maxOutput);
-
-    if (m_safetyHelper != null) {
-      m_safetyHelper.feed();
-    }
-  }
+    } 
+  
 
   /**
    * Drive method for Mecanum wheeled robots.
