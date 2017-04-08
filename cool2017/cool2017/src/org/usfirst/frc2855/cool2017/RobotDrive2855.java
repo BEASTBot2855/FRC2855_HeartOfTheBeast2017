@@ -508,7 +508,7 @@ public class RobotDrive2855 implements MotorSafety {
     //m_rearRightMotor2.set(wheelSpeeds[MotorType.kRearRight2.value] * m_maxOutput);
     
     //set follower talon speeds
-    m_rearLeftMotor2.set(1);
+    m_rearLeftMotor2.set(4);
     m_rearRightMotor2.set(6);
     
     if (m_safetyHelper != null) {
