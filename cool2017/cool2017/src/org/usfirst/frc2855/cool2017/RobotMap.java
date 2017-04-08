@@ -107,10 +107,37 @@ public class RobotMap {
         driverightreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
         
-        driveRobotDrive41 = new RobotDrive2855(driveleftfronttalon, driveleftreartalon,
-              driverightfronttalon, driverightreartalon, driverightreartalon2, driverightreartalon2);
+        /* This is to try running 18v to motors (probably won't work
+         * driveleftreartalon = new CANTalon(4);
+        LiveWindow.addActuator("drive", "left rear talon", driveleftreartalon);
+        driveleftreartalon.configPeakOutputVoltage(+18.0, -18.0);
         
-        driveRobotDrive41.setSafetyEnabled(true);
+        driveleftreartalon2 = new CANTalon(1);
+        driveleftreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
+        LiveWindow.addActuator("drive", "left rear talon2", driveleftreartalon2);
+        driveleftreartalon2.configPeakOutputVoltage(+18.0, -18.0);
+        
+        driveleftfronttalon = new CANTalon(5);
+        LiveWindow.addActuator("drive", "left front talon", driveleftfronttalon);
+        driveleftfronttalon.configPeakOutputVoltage(+18.0, -18.0);
+        
+        driverightfronttalon = new CANTalon(8);
+        LiveWindow.addActuator("drive", "right front talon", driverightfronttalon);
+        driverightfronttalon.configPeakOutputVoltage(+18.0, -18.0);
+        
+        driverightreartalon = new CANTalon(6);
+        LiveWindow.addActuator("drive", "right rear talon", driverightreartalon);
+        driverightreartalon.configPeakOutputVoltage(+18.0, -18.0);
+       
+        driverightreartalon2 = new CANTalon(3);
+        driverightreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
+        LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
+        driverightreartalon2.configPeakOutputVoltage(+18.0, -18.0);*/
+        
+        driveRobotDrive41 = new RobotDrive2855(driveleftfronttalon, driveleftreartalon,
+              driverightfronttalon, driverightreartalon, driveleftreartalon2, driverightreartalon2);
+        
+        driveRobotDrive41.setSafetyEnabled(false);
         driveRobotDrive41.setExpiration(0.5);
         driveRobotDrive41.setSensitivity(0.5);
         driveRobotDrive41.setMaxOutput(1.0);

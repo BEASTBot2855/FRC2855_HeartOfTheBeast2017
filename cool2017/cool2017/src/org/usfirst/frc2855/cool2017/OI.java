@@ -75,7 +75,7 @@ public class OI {
         joystick1 = new Joystick(0);
         
         
-        shooterbutton = new JoystickButton(joystick2, 1);
+        shooterbutton = new JoystickButton(joystick2, 2);
         shooterbutton.whileHeld(new spinshooter());
         
         

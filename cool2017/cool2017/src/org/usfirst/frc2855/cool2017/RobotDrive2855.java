@@ -23,6 +23,8 @@ import edu.wpi.first.wpilibj.hal.HAL;
 
 import static java.util.Objects.requireNonNull;
 
+import com.ctre.CANTalon;
+
 /**
  * Utility class for handling Robot drive based on a definition of the motor configuration. The
  * robot drive class handles basic driving for a robot. Currently, 2 and 4 motor tank and mecanum
@@ -502,14 +504,14 @@ public class RobotDrive2855 implements MotorSafety {
     normalize(wheelSpeeds);
     m_frontLeftMotor.set(wheelSpeeds[MotorType.kFrontLeft.value] * m_maxOutput);
     m_frontRightMotor.set(wheelSpeeds[MotorType.kFrontRight.value] * m_maxOutput);
-    m_rearLeftMotor.set(wheelSpeeds[MotorType.kRearLeft.value] * m_maxOutput);
-    m_rearRightMotor.set(wheelSpeeds[MotorType.kRearRight.value] * m_maxOutput);
+    m_rearLeftMotor.set(wheelSpeeds[MotorType.kRearLeft.value] * m_maxOutput * 0.9);
+    m_rearRightMotor.set(wheelSpeeds[MotorType.kRearRight.value] * m_maxOutput * 0.9);
     //m_rearLeftMotor2.set(wheelSpeeds[MotorType.kRearLeft2.value] * m_maxOutput);
     //m_rearRightMotor2.set(wheelSpeeds[MotorType.kRearRight2.value] * m_maxOutput);
     
     //set follower talon speeds
-    m_rearLeftMotor2.set(4);
-    m_rearRightMotor2.set(6);
+    m_rearLeftMotor2.set(((CANTalon) (m_rearLeftMotor)).getDeviceID());
+    m_rearRightMotor2.set(((CANTalon) (m_rearRightMotor)).getDeviceID());
     
     if (m_safetyHelper != null) {
         m_safetyHelper.feed();
