@@ -91,6 +91,7 @@ public class RobotMap {
         LiveWindow.addActuator("drive", "left rear talon", driveleftreartalon);
         
         driveleftreartalon2 = new CANTalon(1);
+        driveleftreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
         LiveWindow.addActuator("drive", "left rear talon2", driveleftreartalon2);
         
         driveleftfronttalon = new CANTalon(5);
@@ -102,14 +103,15 @@ public class RobotMap {
         driverightreartalon = new CANTalon(6);
         LiveWindow.addActuator("drive", "right rear talon", driverightreartalon);
        
-        driverightreartalon2 = new CANTalon(0);
+        driverightreartalon2 = new CANTalon(3);
+        driverightreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
         
         driveRobotDrive41 = new RobotDrive2855(driveleftfronttalon, driveleftreartalon,
               driverightfronttalon, driverightreartalon, driverightreartalon2, driverightreartalon2);
         
         driveRobotDrive41.setSafetyEnabled(true);
-        driveRobotDrive41.setExpiration(0.1);
+        driveRobotDrive41.setExpiration(0.5);
         driveRobotDrive41.setSensitivity(0.5);
         driveRobotDrive41.setMaxOutput(1.0);
 

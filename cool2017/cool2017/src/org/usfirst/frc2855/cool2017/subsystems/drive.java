@@ -66,7 +66,7 @@ public class drive extends Subsystem {
     }
     
     public void driveGear(){
-    	robotDrive41.mecanumDrive_Cartesian(0, -1, 0.25, 0);
+    	robotDrive41.mecanumDrive_Cartesian(0, -1, 0, 0);
     }
     
     public void driveIntake(){

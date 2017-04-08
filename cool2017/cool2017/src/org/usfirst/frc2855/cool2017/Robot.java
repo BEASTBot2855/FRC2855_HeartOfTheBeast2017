@@ -14,9 +14,11 @@ package org.usfirst.frc2855.cool2017;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc2855.cool2017.commands.*;
 import org.usfirst.frc2855.cool2017.subsystems.*;
@@ -40,6 +42,7 @@ public class Robot extends IterativeRobot {
     public static PneumaticGearArm geararm;
     public static PneumaticGearPinch gearpinch;
     public static LEDArduino leds;
+    public static UsbCamera usbcam;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -57,10 +60,9 @@ public class Robot extends IterativeRobot {
         gearpinch = new PneumaticGearPinch();
         leds = new LEDArduino();
 
-        UsbCamera cam0 = CameraServer.getInstance().startAutomaticCapture(0);
-        UsbCamera cam1 = CameraServer.getInstance().startAutomaticCapture(1);
-        cam0.setFPS(20);
-        cam1.setFPS(20);
+        UsbCamera cam0 = CameraServer.getInstance().startAutomaticCapture();
+        //cam0.setFPS(20);
+        
         
         // OI must be constructed after subsystems. If the OI creates Commands
         //(which it very likely will), subsystems are not guaranteed to be
@@ -96,6 +98,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         RobotMap.agitator.set(1);
+        SmartDashboard.putNumber("Match Time", Timer.getFPGATimestamp());
     }
 
     public void teleopInit() {
@@ -112,6 +115,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         RobotMap.agitator.set(1);
+        SmartDashboard.putNumber("Match Time", Timer.getFPGATimestamp());
     }
 
     /**

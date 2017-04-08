@@ -2,6 +2,7 @@ package org.usfirst.frc2855.cool2017.commands;
 
 import org.usfirst.frc2855.cool2017.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -9,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoReverse extends Command {
 
-	private static int t = 0;
+	private double t;
     public AutoReverse() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -17,6 +18,7 @@ public class AutoReverse extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	t = Timer.getFPGATimestamp();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,12 +28,7 @@ public class AutoReverse extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (t == 200) { 
-        	return true;
-        } else {
-        	t += 5; // add 5 msecs to t b/c thread runs approx. every 5 msecs
-        	return false;
-        }
+    	return (Timer.getFPGATimestamp() >= t+1);
     }
 
     // Called once after isFinished returns true

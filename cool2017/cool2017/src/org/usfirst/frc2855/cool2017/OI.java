@@ -124,7 +124,6 @@ public class OI {
     public Joystick getJoystick1() {
         return joystick1;
     }
-
     public Joystick getJoystick2() {
         return joystick2;
     }

@@ -50,10 +50,33 @@ public class mecanumdrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.drive.drivezRobot(-Robot.oi.getJoystick1().getX(), Robot.oi.getJoystick1().getY(), Robot.oi.getJoystick2().getX());
-		SmartDashboard.putNumber("rear left",RobotMap.driveleftfronttalon.get());
-		SmartDashboard.putNumber("front left",RobotMap.driveleftreartalon.get());
-		SmartDashboard.putNumber("front right",RobotMap.driverightfronttalon.get());
-		SmartDashboard.putNumber("rear right",RobotMap.driverightreartalon.get());
+		SmartDashboard.putNumber("rear left vIn",RobotMap.driveleftfronttalon.getBusVoltage());
+		SmartDashboard.putNumber("front left vIn",RobotMap.driveleftreartalon.getBusVoltage());
+		SmartDashboard.putNumber("front right vIn",RobotMap.driverightfronttalon.getBusVoltage());
+		SmartDashboard.putNumber("rear right vIn",RobotMap.driverightreartalon.getBusVoltage());
+		SmartDashboard.putNumber("rear left 2 vIn", RobotMap.driveleftreartalon2.getBusVoltage());
+		SmartDashboard.putNumber("rear right 2 vIn", RobotMap.driverightreartalon2.getBusVoltage());
+		
+    	SmartDashboard.putNumber("rear left vOut",RobotMap.driveleftfronttalon.getOutputVoltage());
+		SmartDashboard.putNumber("front left vOut",RobotMap.driveleftreartalon.getOutputVoltage());
+		SmartDashboard.putNumber("front right vOut",RobotMap.driverightfronttalon.getOutputVoltage());
+		SmartDashboard.putNumber("rear right vOut",RobotMap.driverightreartalon.getOutputVoltage());
+		SmartDashboard.putNumber("rear left 2 vOut", RobotMap.driveleftreartalon2.getOutputVoltage());
+		SmartDashboard.putNumber("rear right 2 vOut", RobotMap.driverightreartalon2.getOutputVoltage());
+		
+		SmartDashboard.putNumber("rear left aOut",RobotMap.driveleftfronttalon.getOutputCurrent());
+		SmartDashboard.putNumber("front left aOut",RobotMap.driveleftreartalon.getOutputCurrent());
+		SmartDashboard.putNumber("front right aOut",RobotMap.driverightfronttalon.getOutputCurrent());
+		SmartDashboard.putNumber("rear right aOut",RobotMap.driverightreartalon.getOutputCurrent());
+		SmartDashboard.putNumber("rear left 2 aOut", RobotMap.driveleftreartalon2.getOutputCurrent());
+		SmartDashboard.putNumber("rear right 2 aOut", RobotMap.driverightreartalon2.getOutputCurrent());
+		
+		SmartDashboard.putNumber("rear left Temp (C)",RobotMap.driveleftfronttalon.getTemperature());
+		SmartDashboard.putNumber("front left Temp (C)",RobotMap.driveleftreartalon.getTemperature());
+		SmartDashboard.putNumber("front right Temp (C)",RobotMap.driverightfronttalon.getTemperature());
+		SmartDashboard.putNumber("rear right Temp (C)",RobotMap.driverightreartalon.getTemperature());
+		SmartDashboard.putNumber("rear left 2 Temp (C)", RobotMap.driveleftreartalon2.getTemperature());
+		SmartDashboard.putNumber("rear right 2 Temp (C)", RobotMap.driverightreartalon2.getTemperature());
     }
 
     // Make this return true when this Command no longer needs to run execute()

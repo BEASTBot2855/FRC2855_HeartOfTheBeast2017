@@ -140,7 +140,7 @@ public class RobotDrive2855 implements MotorSafety {
   }
 
   /**
-   * Constructor for RobotDrive with 4 motors specified as SpeedController objects. Speed controller
+   * Constructor for RobotDrive with 4 (6) motors specified as SpeedController objects. Speed controller
    * input version of RobotDrive (see previous comments).
    *
    * @param frontLeftMotor  The front left SpeedController object used to drive the robot
@@ -496,17 +496,25 @@ public class RobotDrive2855 implements MotorSafety {
     wheelSpeeds[MotorType.kFrontRight.value] = xIn + yIn*yIn*yIn + strafe;
     wheelSpeeds[MotorType.kRearLeft.value] = -xIn + yIn*yIn*yIn + strafe;
     wheelSpeeds[MotorType.kRearRight.value] = -xIn - yIn*yIn*yIn + strafe;
-    wheelSpeeds[MotorType.kRearLeft2.value] = -xIn + yIn*yIn*yIn + strafe;
-    wheelSpeeds[MotorType.kRearRight2.value] = -xIn - yIn*yIn*yIn + strafe;
+    //wheelSpeeds[MotorType.kRearLeft2.value] = -xIn + yIn*yIn*yIn + strafe;
+    //wheelSpeeds[MotorType.kRearRight2.value] = -xIn - yIn*yIn*yIn + strafe;
     
     normalize(wheelSpeeds);
     m_frontLeftMotor.set(wheelSpeeds[MotorType.kFrontLeft.value] * m_maxOutput);
     m_frontRightMotor.set(wheelSpeeds[MotorType.kFrontRight.value] * m_maxOutput);
     m_rearLeftMotor.set(wheelSpeeds[MotorType.kRearLeft.value] * m_maxOutput);
     m_rearRightMotor.set(wheelSpeeds[MotorType.kRearRight.value] * m_maxOutput);
-    m_rearLeftMotor2.set(wheelSpeeds[MotorType.kRearLeft2.value] * m_maxOutput);
-    m_rearRightMotor2.set(wheelSpeeds[MotorType.kRearRight2.value] * m_maxOutput);
-    } 
+    //m_rearLeftMotor2.set(wheelSpeeds[MotorType.kRearLeft2.value] * m_maxOutput);
+    //m_rearRightMotor2.set(wheelSpeeds[MotorType.kRearRight2.value] * m_maxOutput);
+    
+    //set follower talon speeds
+    m_rearLeftMotor2.set(1);
+    m_rearRightMotor2.set(6);
+    
+    if (m_safetyHelper != null) {
+        m_safetyHelper.feed();
+      }
+  } 
   
 
   /**
@@ -548,6 +556,7 @@ public class RobotDrive2855 implements MotorSafety {
     m_rearLeftMotor.set(wheelSpeeds[MotorType.kRearLeft.value] * m_maxOutput);
     m_rearRightMotor.set(wheelSpeeds[MotorType.kRearRight.value] * m_maxOutput);
 
+    //feed motor safety
     if (m_safetyHelper != null) {
       m_safetyHelper.feed();
     }

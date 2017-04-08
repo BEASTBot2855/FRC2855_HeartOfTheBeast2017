@@ -27,7 +27,6 @@ public class AutoGearCommandGroup extends CommandGroup {
         // arm.
     	addSequential(new AutoGearCommand());
     	addSequential(new AutoGearRelease());
-    	Timer.delay(2.0);
-    	addSequential(new AutoReverse());
+      	//addSequential(new AutoReverse());
     }
 }
