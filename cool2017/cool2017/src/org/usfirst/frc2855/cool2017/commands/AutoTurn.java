@@ -1,19 +1,17 @@
 package org.usfirst.frc2855.cool2017.commands;
 
 import org.usfirst.frc2855.cool2017.Robot;
-import org.usfirst.frc2855.cool2017.RobotMap;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class AutoGearCommand extends Command {
+public class AutoTurn extends Command {
 
 	private double t;
-    public AutoGearCommand() {
+    public AutoTurn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -25,16 +23,12 @@ public class AutoGearCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.driveGear();
+    	Robot.drive.turnLeft();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	//old version
-        return (Timer.getFPGATimestamp() >= t+1.5);
-    	
-    	//new (trial) version
-    	
+    	return (Timer.getFPGATimestamp() >= t+2);
     }
 
     // Called once after isFinished returns true

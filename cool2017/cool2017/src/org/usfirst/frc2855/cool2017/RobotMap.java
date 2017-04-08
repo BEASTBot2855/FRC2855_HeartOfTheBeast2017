@@ -50,7 +50,7 @@ public class RobotMap {
     public static CANTalon driverightfronttalon;
     public static CANTalon driverightreartalon;
     public static CANTalon driverightreartalon2;
-    public static RobotDrive2855 driveRobotDrive41;
+    public static SixMotorDrive driveRobotDrive41;
     
     public static SpeedController climbingarmclimbingmotor;
     
@@ -134,7 +134,7 @@ public class RobotMap {
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
         driverightreartalon2.configPeakOutputVoltage(+18.0, -18.0);*/
         
-        driveRobotDrive41 = new RobotDrive2855(driveleftfronttalon, driveleftreartalon,
+        driveRobotDrive41 = new SixMotorDrive(driveleftfronttalon, driveleftreartalon,
               driverightfronttalon, driverightreartalon, driveleftreartalon2, driverightreartalon2);
         
         driveRobotDrive41.setSafetyEnabled(false);
@@ -142,8 +142,8 @@ public class RobotMap {
         driveRobotDrive41.setSensitivity(0.5);
         driveRobotDrive41.setMaxOutput(1.0);
 
-        driveRobotDrive41.setInvertedMotor(RobotDrive2855.MotorType.kFrontRight, true);
-        driveRobotDrive41.setInvertedMotor(RobotDrive2855.MotorType.kFrontLeft, true);
+        driveRobotDrive41.setInvertedMotor(SixMotorDrive.MotorType.kFrontRight, true);
+        driveRobotDrive41.setInvertedMotor(SixMotorDrive.MotorType.kFrontLeft, true);
         
         
         climbingarmclimbingmotor = new Talon(6);
