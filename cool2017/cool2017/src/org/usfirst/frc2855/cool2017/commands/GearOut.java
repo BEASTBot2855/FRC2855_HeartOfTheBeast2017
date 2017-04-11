@@ -5,7 +5,7 @@ import org.usfirst.frc2855.cool2017.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * tells arm solenoid to push gear arm out
  */
 public class GearOut extends Command {
 

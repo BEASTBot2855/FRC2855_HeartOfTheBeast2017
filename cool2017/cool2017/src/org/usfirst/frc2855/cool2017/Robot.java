@@ -50,19 +50,37 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     
+    	// initializes RobotMap
     	RobotMap.init();
     
+    	// creates new intake subsystem object
         ballintake = new ballintake();
+        
+        // creates new shooter subsystem object
         shooter = new shooter();
+        
+        // creates new drive subsystem object
         drive = new drive();
+        
+        // creates new climber subsystem object
         climbingarm = new climbingarm();
+        
+        // creates new gear arm solenoid subsystem object
         geararm = new PneumaticGearArm();
+        
+        // creates new gear solenoid subsystem object
         gearpinch = new PneumaticGearPinch();
+        
+        // creates new LED microcontroller subsystem object
         leds = new LEDArduino();
 
         UsbCamera cam0 = CameraServer.getInstance().startAutomaticCapture();
-        //cam0.setFPS(20);
         
+        /* code for two cameras - currently untested
+        
+        UsbCamera cam0 = CameraServer.getInstance().startAutomaticCapture(0);
+        UsbCamera cam1 = CameraServer.getInstance().startAutomaticCapture(1);
+        */
         
         // OI must be constructed after subsystems. If the OI creates Commands
         //(which it very likely will), subsystems are not guaranteed to be
@@ -79,6 +97,9 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
+    	
+    	// these pull in the arm and pinch a gear
+    	// apparently runs when disabled starts but solenoids don't fire until enabled again which kind of makes sense
     	gearpinch.gearPinch();
     	geararm.gearIn();
     }
@@ -97,7 +118,11 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        
+        // turns on agitator
         RobotMap.agitator.set(1);
+        
+        // puts FPGA time on SmartDashboard
         SmartDashboard.putNumber("Match Time", Timer.getFPGATimestamp());
     }
 
@@ -114,7 +139,11 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        // runs agitator
         RobotMap.agitator.set(1);
+        
+        // puts FPGA time on SmartDashboard
         SmartDashboard.putNumber("Match Time", Timer.getFPGATimestamp());
     }
 

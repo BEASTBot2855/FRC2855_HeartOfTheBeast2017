@@ -5,7 +5,7 @@ import org.usfirst.frc2855.cool2017.RobotMap;
 import org.usfirst.frc2855.cool2017.Robot;
 
 /**
- *
+ * tells arm solenoid to pull gear arm in
  */
 public class GearIn extends Command {
 

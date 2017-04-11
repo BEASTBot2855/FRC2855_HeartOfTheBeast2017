@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * runs robot in direction of gear manipulator for 1.5 seconds, then stops the robot
  */
 public class AutoGearCommand extends Command {
 
@@ -30,11 +30,7 @@ public class AutoGearCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	//old version
         return (Timer.getFPGATimestamp() >= t+1.5);
-    	
-    	//new (trial) version
-    	
     }
 
     // Called once after isFinished returns true

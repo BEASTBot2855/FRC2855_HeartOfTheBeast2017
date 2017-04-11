@@ -12,7 +12,6 @@
 package org.usfirst.frc2855.cool2017.subsystems;
 
 import org.usfirst.frc2855.cool2017.Robot;
-import org.usfirst.frc2855.cool2017.RobotDrive2855;
 import org.usfirst.frc2855.cool2017.RobotMap;
 import org.usfirst.frc2855.cool2017.SixMotorDrive;
 import org.usfirst.frc2855.cool2017.SPIGyro.ADXRS453Gyro;

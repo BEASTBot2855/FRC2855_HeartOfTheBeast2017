@@ -71,44 +71,58 @@ public class RobotMap {
     public static DigitalOutput ledbreathe;
     
     //public static I2C pixyarduino;
+    
+    // read WPILIB documentation on LiveWindow to understand it (it is for Driver Station test mode)
     public static void init() {
     	
+    	// starts cameras
     	CameraServer.getInstance().startAutomaticCapture();
     	
-    	
+    	// sets agitator Talon SR to PWM port 4
         agitator = new Talon(4);
         LiveWindow.addActuator("agitator", "agitator", (Talon) agitator);
         
+        // sets intake Talon SR to PWM port 5
         ballintakeintaketalon = new Talon(5);
         LiveWindow.addActuator("ball intake", "intake talon", (Talon) ballintakeintaketalon);
         
+        
+        // sets shooter Talon SRX to Talon SRX at CAN ID 7 
         shooterTalon = new CANTalon(7);
         LiveWindow.addActuator("shooter", "shooter talon", shooterTalon);
         
         
-        
+        // sets drivetrain Talon SRX for back left MiniCIM furthest from intake to Talon SRX at CAN ID 4
         driveleftreartalon = new CANTalon(4);
         LiveWindow.addActuator("drive", "left rear talon", driveleftreartalon);
         
+        // sets drivetrain Talon SRX for back left MiniCIM closest to intake to Talon SRX at CAN ID 1
+        // sets Talon SRX at CAN ID 1 to follower mode
         driveleftreartalon2 = new CANTalon(1);
         driveleftreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
         LiveWindow.addActuator("drive", "left rear talon2", driveleftreartalon2);
         
+        // sets drivetrain Talon SRX for front left CIM to Talon SRX at CAN ID 5
         driveleftfronttalon = new CANTalon(5);
         LiveWindow.addActuator("drive", "left front talon", driveleftfronttalon);
         
+        // sets drivetrain Talon SRX for front right CIM to Talon SRX at CAN ID 8
         driverightfronttalon = new CANTalon(8);
         LiveWindow.addActuator("drive", "right front talon", driverightfronttalon);
         
+        // sets drivetrain Talon SRX for back right MiniCIM furthest from intake to Talon SRX at CAN ID 6
         driverightreartalon = new CANTalon(6);
         LiveWindow.addActuator("drive", "right rear talon", driverightreartalon);
        
+        // sets drivetrain Talon SRX for back right MiniCIM closest to intake to Talon SRX at CAN ID 3
+        // sets Talon SRX at CAN ID 3 to follower mode
         driverightreartalon2 = new CANTalon(3);
         driverightreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
         
-        /* This is to try running 18v to motors (probably won't work
-         * driveleftreartalon = new CANTalon(4);
+        /* This is to try running 18v to motors (probably won't work)
+        
+        driveleftreartalon = new CANTalon(4);
         LiveWindow.addActuator("drive", "left rear talon", driveleftreartalon);
         driveleftreartalon.configPeakOutputVoltage(+18.0, -18.0);
         
@@ -132,59 +146,72 @@ public class RobotMap {
         driverightreartalon2 = new CANTalon(3);
         driverightreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
-        driverightreartalon2.configPeakOutputVoltage(+18.0, -18.0);*/
+        driverightreartalon2.configPeakOutputVoltage(+18.0, -18.0);
+        */
         
+        // creates drivetrain object and passes all motor controllers to object
         driveRobotDrive41 = new SixMotorDrive(driveleftfronttalon, driveleftreartalon,
               driverightfronttalon, driverightreartalon, driveleftreartalon2, driverightreartalon2);
         
+        // sets if motor safety is on or off (recommend on)
         driveRobotDrive41.setSafetyEnabled(false);
+        // sets timeout before motor safety decides that drive motors need to be stopped because drivetrain object stopped sending a signal
         driveRobotDrive41.setExpiration(0.5);
+        // sets sensitivity for something (not sure what)
         driveRobotDrive41.setSensitivity(0.5);
+        // sets maximum output percentage for non-PercentvBus modes
         driveRobotDrive41.setMaxOutput(1.0);
 
+        // inverts direction of front motors because we are using Mecanum
         driveRobotDrive41.setInvertedMotor(SixMotorDrive.MotorType.kFrontRight, true);
         driveRobotDrive41.setInvertedMotor(SixMotorDrive.MotorType.kFrontLeft, true);
         
-        
+        // sets climber Talon SR to PWM 6 
         climbingarmclimbingmotor = new Talon(6);
         LiveWindow.addActuator("climbing arm", "climbing motor", (Talon) climbingarmclimbingmotor);
         
-        
+        // sets gear arm solenoid to ports 0 and 1 on PCM 0
         gearInOutSolenoid = new DoubleSolenoid(0, 0, 1);
         LiveWindow.addActuator("Gear In Out Solenoid", "Gear Arm Double Solenoid", gearInOutSolenoid);
         
+        // sets gear solenoid to ports 2 and 3 on PCM 0
         gearPinchSolenoid = new DoubleSolenoid(0, 2, 3);
         LiveWindow.addActuator("Gear Pinch", "Gear Pinch Double Solenoid", gearPinchSolenoid);
         
         
+        // creates new ultrasonic object at PWM 8 and 9
         Ultrasonic = new edu.wpi.first.wpilibj.Ultrasonic(8, 9);
         
-        
+        // sets the type of the sensor that is plugged into the shooter Talon SRX 
         shooterTalon.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+        // sets if the sensor is running in reverse (not sure exactly how to explain it)
         shooterTalon.reverseSensor(false);
+        // sets minimum output voltage for each direction when in closed-loop modes
         shooterTalon.configNominalOutputVoltage(+0.0f, -0.0f);
+        // sets maximum output voltage for each direction when in closed-loop modes and only allows it to run forwards
         shooterTalon.configPeakOutputVoltage(+12.0f, -0.0f);
+        // sets which set of values to use from preset 'profiles' that are set in the Web Dashboard (there are two profiles, 0 & 1)
         shooterTalon.setProfile(0);
         
         
-        
+        // creates new gyro object
         gyro = new ADXRS453Gyro();
 
-        
+        // creates new DIO output object for DIO 1
         ledshooter = new DigitalOutput(1);
         LiveWindow.addActuator("LED Shooter", "LED Shooter", ledshooter);
         
+        // creates new DIO output object for DIO 2
         ledintake = new DigitalOutput(2);
         LiveWindow.addActuator("LED Intake", "LED Intake", ledintake);
         
+        // creates new DIO output object for DIO 3
         ledflash = new DigitalOutput(3);
         LiveWindow.addActuator("LED Flash", "LED Flash", ledflash);
         
+        // creates new DIO output object for DIO 4
         ledbreathe = new DigitalOutput(4);
         LiveWindow.addActuator("LED Breathe", "LED Breathe", ledbreathe);
-        
-        
-        //pixyarduino = new I2C(edu.wpi.first.wpilibj.I2C.Port.kOnboard, 8);
         
     }
 }

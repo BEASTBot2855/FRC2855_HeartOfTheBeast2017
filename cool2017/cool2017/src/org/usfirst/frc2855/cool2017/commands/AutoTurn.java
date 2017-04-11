@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * turns the robot counterclockwise for 2 seconds, then stops the robot
  */
 public class AutoTurn extends Command {
 

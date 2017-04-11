@@ -16,9 +16,7 @@ import org.usfirst.frc2855.cool2017.Robot;
 import org.usfirst.frc2855.cool2017.subsystems.climbingarm;
 
 /**
- * spins them motor to make the robot climb the rope
- * 
- * complete
+ * spins them motor to make the robot climb the rope and stops climber when interrupted
  */
 public class climb extends Command {
 

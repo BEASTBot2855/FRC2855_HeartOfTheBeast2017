@@ -4,7 +4,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Auto command for placing gear on peg
+ * Drives, turns, drives, releases gear, drives away
  */
 public class AutoGearCommandGroup extends CommandGroup {
 

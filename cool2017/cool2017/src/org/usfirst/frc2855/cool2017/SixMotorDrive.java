@@ -1,7 +1,5 @@
 package org.usfirst.frc2855.cool2017;
 
-import org.usfirst.frc2855.cool2017.RobotDrive2855.MotorType;
-
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -31,6 +29,8 @@ public class SixMotorDrive extends RobotDrive{
 		this.rearLeftMotorSlave.set(rearLeftMotor.getDeviceID());
 		this.rearRightMotorSlave.set(rearRightMotor.getDeviceID());
 	}
+	
+	// copied from RobotDrive class but has different calculations to determine wheel speed and direction
 	public void mecanumDrive_Cartesian(double x, double y, double strafe, double gyroAngle) {
 	    if (!kMecanumCartesian_Reported) {
 	      HAL.report(tResourceType.kResourceType_RobotDrive, getNumMotors(),
@@ -53,16 +53,12 @@ public class SixMotorDrive extends RobotDrive{
 	    wheelSpeeds[MotorType.kFrontRight.value] = xIn + yIn*yIn*yIn + strafe;
 	    wheelSpeeds[MotorType.kRearLeft.value] = -xIn + yIn*yIn*yIn + strafe;
 	    wheelSpeeds[MotorType.kRearRight.value] = -xIn - yIn*yIn*yIn + strafe;
-	    //wheelSpeeds[MotorType.kRearLeft2.value] = -xIn + yIn*yIn*yIn + strafe;
-	    //wheelSpeeds[MotorType.kRearRight2.value] = -xIn - yIn*yIn*yIn + strafe;
 	    
 	    normalize(wheelSpeeds);
 	    m_frontLeftMotor.set(wheelSpeeds[MotorType.kFrontLeft.value] * m_maxOutput);
 	    m_frontRightMotor.set(wheelSpeeds[MotorType.kFrontRight.value] * m_maxOutput);
 	    m_rearLeftMotor.set(wheelSpeeds[MotorType.kRearLeft.value] * m_maxOutput * 0.9);
 	    m_rearRightMotor.set(wheelSpeeds[MotorType.kRearRight.value] * m_maxOutput * 0.9);
-	    //m_rearLeftMotor2.set(wheelSpeeds[MotorType.kRearLeft2.value] * m_maxOutput);
-	    //m_rearRightMotor2.set(wheelSpeeds[MotorType.kRearRight2.value] * m_maxOutput);
 	    	    
 	    if (m_safetyHelper != null) {
 	        m_safetyHelper.feed();
