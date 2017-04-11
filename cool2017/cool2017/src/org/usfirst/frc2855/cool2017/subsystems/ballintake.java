@@ -21,7 +21,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * picks up stray fuel balls off the ground
- *complete
  */
 public class ballintake extends Subsystem {
 

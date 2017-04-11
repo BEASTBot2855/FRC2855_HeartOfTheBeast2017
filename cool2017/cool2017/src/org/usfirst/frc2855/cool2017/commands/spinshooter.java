@@ -18,9 +18,7 @@ import org.usfirst.frc2855.cool2017.Robot;
 import org.usfirst.frc2855.cool2017.RobotMap;
 
 /**
- * spins wheel on shooter mechanism
- * set to run while held
- * completed
+ * spins wheel on shooter mechanism and stops when interrupted
  */
 public class spinshooter extends Command {
 	private double shooterSpeed=75;

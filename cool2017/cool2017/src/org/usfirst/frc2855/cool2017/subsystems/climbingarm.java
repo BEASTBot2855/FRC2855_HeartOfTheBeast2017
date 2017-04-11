@@ -21,8 +21,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * grabs rope and climbs using a winch at end of match
- * 
- * INCOMPLETE
  */
 public class climbingarm extends Subsystem {
 

@@ -23,9 +23,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * drives robot using mecanum drive and gyroscope (cartesian)
- * 
- * INCOMPLETE
+ * drives robot using mecanum drive (cartesian) and currently no gyroscope
  */
 public class drive extends Subsystem {
 

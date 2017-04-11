@@ -5,7 +5,7 @@ import org.usfirst.frc2855.cool2017.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Sets DIO 4 to high, then low when interrupted
  */
 public class LEDBreathe extends Command {
 

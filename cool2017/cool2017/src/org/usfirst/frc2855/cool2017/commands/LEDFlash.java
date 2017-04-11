@@ -5,7 +5,7 @@ import org.usfirst.frc2855.cool2017.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Sets DIO 3 to high, then low when interrupted
  */
 public class LEDFlash extends Command {
 

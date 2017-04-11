@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * For testing the ultrasonic
+ * For testing the ultrasonic sensor (out DIO 8, in DIO 9)
  */
 public class SensorTest extends Command {
 

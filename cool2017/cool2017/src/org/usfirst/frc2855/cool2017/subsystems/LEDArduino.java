@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * Sends DIO signals to microcontroller for LEDs
  */
 public class LEDArduino extends Subsystem {
 

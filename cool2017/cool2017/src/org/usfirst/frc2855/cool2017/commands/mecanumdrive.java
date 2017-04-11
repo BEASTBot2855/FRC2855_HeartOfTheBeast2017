@@ -21,8 +21,6 @@ import org.usfirst.frc2855.cool2017.RobotMap;
  * default command for robot drive
  * polls continuously fetches values from joysticks
  * and uses them to drive robot
- * 
- * INCOMPLETE
  */
 public class mecanumdrive extends Command {
 

@@ -18,8 +18,6 @@ import org.usfirst.frc2855.cool2017.Robot;
  * spins motor for ball intake mechanism
  * can spin at different speeds/directions based on the value sent from oi
  * when the command is created
- * 
- *complete
  */
 public class IntakeControl extends Command {
 
