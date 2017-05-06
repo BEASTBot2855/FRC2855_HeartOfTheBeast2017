@@ -31,7 +31,7 @@ public class SixMotorDrive extends RobotDrive{
 	}
 	
 	// copied from RobotDrive class but has different calculations to determine wheel speed and direction
-	public void mecanumDrive_Cartesian(double x, double y, double strafe, double gyroAngle) {
+	public void mecanumDrive_Cartesian(double x, double rotate, double strafe, double gyroAngle) {
 	    if (!kMecanumCartesian_Reported) {
 	      HAL.report(tResourceType.kResourceType_RobotDrive, getNumMotors(),
 	          tInstances.kRobotDrive_MecanumCartesian);
@@ -40,19 +40,19 @@ public class SixMotorDrive extends RobotDrive{
 	    @SuppressWarnings("LocalVariableName")
 	    double xIn = x;
 	    @SuppressWarnings("LocalVariableName")
-	    double yIn = y;
+	    double rotateIn = rotate;
 	    // Negate y for the joystick.
-	    yIn = -yIn;
+	    rotateIn = -rotateIn;
 	    // Compenstate for gyro angle.
-	    double[] rotated = rotateVector(xIn, yIn, gyroAngle);
+	    double[] rotated = rotateVector(xIn, rotateIn, gyroAngle);
 	    xIn = rotated[0];
-	    yIn = rotated[1];
+	    rotateIn = rotated[1];
 
 	    double[] wheelSpeeds = new double[kMaxNumberOfMotors];
-	    wheelSpeeds[MotorType.kFrontLeft.value] = xIn - yIn*yIn*yIn + strafe;
-	    wheelSpeeds[MotorType.kFrontRight.value] = xIn + yIn*yIn*yIn + strafe;
-	    wheelSpeeds[MotorType.kRearLeft.value] = -xIn + yIn*yIn*yIn + strafe;
-	    wheelSpeeds[MotorType.kRearRight.value] = -xIn - yIn*yIn*yIn + strafe;
+	    wheelSpeeds[MotorType.kFrontLeft.value] = xIn - Math.pow(rotateIn, 4) + strafe;
+	    wheelSpeeds[MotorType.kFrontRight.value] = xIn + Math.pow(rotateIn, 4) + strafe;
+	    wheelSpeeds[MotorType.kRearLeft.value] = -xIn + Math.pow(rotateIn, 4) + strafe;
+	    wheelSpeeds[MotorType.kRearRight.value] = -xIn - Math.pow(rotateIn, 4) + strafe;
 	    
 	    normalize(wheelSpeeds);
 	    m_frontLeftMotor.set(wheelSpeeds[MotorType.kFrontLeft.value] * m_maxOutput);
