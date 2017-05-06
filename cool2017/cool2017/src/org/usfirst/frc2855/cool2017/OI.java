@@ -75,52 +75,176 @@ public class OI {
         joystick2 = new Joystick(1);
         
         
-        // spins the shooter
-        shooterbutton = new JoystickButton(joystick2, 2);
+        /** 
+         * Each JoystickButton definition has two versions: Competition and Demo.
+         * 
+         * Competition mode is intended for one driver with two joysticks and controls spread between them (uses
+         * 	an Attack 3 on the left and an Extreme 3D Pro on the right).
+         * 
+         * Demo mode is intended for two drivers with one Extreme 3D Pro joystick each. Drive is on joystick 1
+         * 	while all other controls are on joystick 2. 
+         * 
+         * This is done because Sparky is tank drive and thus requires two joysticks for one driver. The Extreme
+         * 	3D Pro joystick is right-handed only, making using two of them together difficult. Thus, we use an 
+         *  Attack 3 and an Extreme 3D Pro for Sparky and two Extreme 3D Pros for the Heart of the Beast if 
+         *  both are being run simultaneously.
+         *  
+         * To switch between modes, uncomment lines labeled for use in the desired mode listed and comment
+         * 	out the lines labeled for use in the other mode.
+         */
+        
+        
+        
+        /**
+         * Spins shooter
+         */
+        
+        // Competition Mode
+        	//shooterbutton = new JoystickButton(joystick2, 2);
+        
+        // Demo Mode
+        	shooterbutton = new JoystickButton(joystick2, 1);
+        
+        
         shooterbutton.whileHeld(new spinshooter());
         SmartDashboard.putData("Spin shooter", new spinshooter());
         
         
-        // runs the intake to pull fuel in
-        ballin = new JoystickButton(joystick1, 3);
+        
+        /** 
+         * Runs intake to pull fuel in
+         */
+        
+        // Competition Mode
+        	//ballin = new JoystickButton(joystick1, 3);
+        
+        // Demo Mode
+        	ballin = new JoystickButton(joystick2, 5);
+        
+        
         ballin.whileHeld(new IntakeControl(1));
         SmartDashboard.putData("Intake Control: ballIn", new IntakeControl(1));
         
-        // runs the intake to push fuel out
-        ballOut = new JoystickButton(joystick1, 6);
+        
+        
+        /**
+         * Runs intake to push fuel out
+         */
+        
+        // Competition Mode
+        	//ballOut = new JoystickButton(joystick1, 6);
+        
+        // Demo Mode
+        	ballOut = new JoystickButton(joystick2, 6);
+        
+        
         ballOut.whileHeld(new IntakeControl(-1));
         SmartDashboard.putData("Intake Control: ballOut", new IntakeControl(-1));
         
         
-        // activates solenoid to retract cylinder in arm
-        gearpinch = new JoystickButton(joystick2, 4);
+        
+        /**
+         *  Activates solenoid to retract cylinder in arm
+         */
+        
+        // Competition Mode
+        	//gearpinch = new JoystickButton(joystick2, 4);
+        
+        // Demo Mode
+        	gearpinch = new JoystickButton(joystick2, 4);
+        
+        
         gearpinch.whenPressed(new GearPinch());
         
-        // activates solenoid to extend cylinder in arm
-        gearrelease = new JoystickButton(joystick2, 1);
+        
+        
+        /**
+         * Activates solenoid to extend cylinder in arm
+         */
+        
+        // Competition Mode
+        	//gearrelease = new JoystickButton(joystick2, 1);
+        
+        // Demo Mode
+        	gearrelease = new JoystickButton(joystick2, 3);
+        
+        
         gearrelease.whenPressed(new GearRelease());
         
-        // activates solenoid to retract cylinder moving arm
-        gearin = new JoystickButton(joystick1, 1);
+        
+        
+        /**
+         * Activates solenoid to retract cylinder moving arm
+         */
+        
+        // Competition Mode
+        	//gearin = new JoystickButton(joystick1, 1);
+        
+        // Demo Mode
+        	gearin = new JoystickButton(joystick2, 11);
+        
+        
         gearin.whileHeld(new GearIn());
         
-        // activates solenoid to extend cylinder moving arm
-        gearout = new JoystickButton(joystick1, 2);
+        
+        
+        /**
+         * Activates solenoid to extend cylinder moving arm
+         */
+        
+        // Competition Mode
+        	//gearout = new JoystickButton(joystick1, 2);
+        
+        // Demo Mode
+        	gearout = new JoystickButton(joystick2, 2);
+        
+        
         gearout.whileHeld(new GearOut());
         
         
-        // runs climber
-        climbButton = new JoystickButton(joystick1, 5);
+        
+        /**
+         * Runs climber
+         */
+        
+        // Competition Mode
+        	//climbButton = new JoystickButton(joystick1, 5);
+        
+        // Demo Mode
+        	climbButton = new JoystickButton(joystick2, 9);
+        
+        
         climbButton.whileHeld(new climb());
         SmartDashboard.putData("Climb", new climb());
         
         
-        // sets one DIO port connected to microcontroller to high
-        ledflash = new JoystickButton(joystick1, 8);
+        
+        /**
+         * Sets a DIO port to HIGH to signal microcontroller to make LEDs flash randomly
+         */
+        
+        // Competition Mode
+        	//ledflash = new JoystickButton(joystick1, 7);
+        
+        // Demo Mode
+        	ledflash = new JoystickButton(joystick2, 7);
+        
+        
         ledflash.whileHeld(new LEDFlash());
         
-        // sets another DIO port connected to microcontroller to high
-        ledbreathe = new JoystickButton(joystick1, 9);
+        
+        
+        /**
+         * Sets a DIO port to HIGH to signal microcontroller to make LEDs "breathe"
+         */
+        
+        // Competition Mode
+        	//ledbreathe = new JoystickButton(joystick1, 8);
+        
+        // Demo Mode
+        	ledbreathe = new JoystickButton(joystick2, 8);
+        
+        
         ledbreathe.whileHeld(new LEDBreathe());
         
         

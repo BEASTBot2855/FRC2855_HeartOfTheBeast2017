@@ -47,13 +47,33 @@ public class mecanumdrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.drivezRobot(-Robot.oi.getJoystick1().getX(), Robot.oi.getJoystick1().getY(), Robot.oi.getJoystick2().getX());
-		SmartDashboard.putNumber("rear left vIn",RobotMap.driveleftfronttalon.getBusVoltage());
+    	
+    	/**
+    	 * Drives robot
+    	 */
+    	
+    	// Demo Mode (single joystick)
+    	Robot.drive.drivezRobot(-Robot.oi.getJoystick1().getX(), Robot.oi.getJoystick1().getTwist(), Robot.oi.getJoystick1().getY());
+    	
+    	// Competition mode (two joystick)
+    	//Robot.drive.drivezRobot(-Robot.oi.getJoystick1().getX(), Robot.oi.getJoystick1().getY(), Robot.oi.getJoystick2().getX());
+    	
+    	
+    	/**
+    	 * Adds input voltages to SmartDashboard
+    	 */
+    	
+    	SmartDashboard.putNumber("rear left vIn",RobotMap.driveleftfronttalon.getBusVoltage());
 		SmartDashboard.putNumber("front left vIn",RobotMap.driveleftreartalon.getBusVoltage());
 		SmartDashboard.putNumber("front right vIn",RobotMap.driverightfronttalon.getBusVoltage());
 		SmartDashboard.putNumber("rear right vIn",RobotMap.driverightreartalon.getBusVoltage());
 		SmartDashboard.putNumber("rear left 2 vIn", RobotMap.driveleftreartalon2.getBusVoltage());
 		SmartDashboard.putNumber("rear right 2 vIn", RobotMap.driverightreartalon2.getBusVoltage());
+		
+		
+		/**
+		 * Adds output voltages to SmartDashboard
+		 */
 		
     	SmartDashboard.putNumber("rear left vOut",RobotMap.driveleftfronttalon.getOutputVoltage());
 		SmartDashboard.putNumber("front left vOut",RobotMap.driveleftreartalon.getOutputVoltage());
@@ -62,12 +82,22 @@ public class mecanumdrive extends Command {
 		SmartDashboard.putNumber("rear left 2 vOut", RobotMap.driveleftreartalon2.getOutputVoltage());
 		SmartDashboard.putNumber("rear right 2 vOut", RobotMap.driverightreartalon2.getOutputVoltage());
 		
+		
+		/**
+		 * Adds output amperages to SmartDashboard
+		 */
+		
 		SmartDashboard.putNumber("rear left aOut",RobotMap.driveleftfronttalon.getOutputCurrent());
 		SmartDashboard.putNumber("front left aOut",RobotMap.driveleftreartalon.getOutputCurrent());
 		SmartDashboard.putNumber("front right aOut",RobotMap.driverightfronttalon.getOutputCurrent());
 		SmartDashboard.putNumber("rear right aOut",RobotMap.driverightreartalon.getOutputCurrent());
 		SmartDashboard.putNumber("rear left 2 aOut", RobotMap.driveleftreartalon2.getOutputCurrent());
 		SmartDashboard.putNumber("rear right 2 aOut", RobotMap.driverightreartalon2.getOutputCurrent());
+		
+		
+		/**
+		 * Adds temperatures to SmartDashboard
+		 */
 		
 		SmartDashboard.putNumber("rear left Temp (C)",RobotMap.driveleftfronttalon.getTemperature());
 		SmartDashboard.putNumber("front left Temp (C)",RobotMap.driveleftreartalon.getTemperature());
