@@ -49,10 +49,10 @@ public class SixMotorDrive extends RobotDrive{
 	    rotateIn = rotated[1];
 
 	    double[] wheelSpeeds = new double[kMaxNumberOfMotors];
-	    wheelSpeeds[MotorType.kFrontLeft.value] = xIn - Math.pow(rotateIn, 4) + strafe;
-	    wheelSpeeds[MotorType.kFrontRight.value] = xIn + Math.pow(rotateIn, 4) + strafe;
-	    wheelSpeeds[MotorType.kRearLeft.value] = -xIn + Math.pow(rotateIn, 4) + strafe;
-	    wheelSpeeds[MotorType.kRearRight.value] = -xIn - Math.pow(rotateIn, 4) + strafe;
+	    wheelSpeeds[MotorType.kFrontLeft.value] = xIn - Math.pow(rotateIn, 5) + strafe;
+	    wheelSpeeds[MotorType.kFrontRight.value] = xIn + Math.pow(rotateIn, 5) + strafe;
+	    wheelSpeeds[MotorType.kRearLeft.value] = -xIn + Math.pow(rotateIn, 5) + strafe;
+	    wheelSpeeds[MotorType.kRearRight.value] = -xIn - Math.pow(rotateIn, 5) + strafe;
 	    
 	    normalize(wheelSpeeds);
 	    m_frontLeftMotor.set(wheelSpeeds[MotorType.kFrontLeft.value] * m_maxOutput);

@@ -53,7 +53,7 @@ public class mecanumdrive extends Command {
     	 */
     	
     	// Demo Mode (single joystick)
-    	Robot.drive.drivezRobot(-Robot.oi.getJoystick1().getX(), Robot.oi.getJoystick1().getTwist(), Robot.oi.getJoystick1().getY());
+    	Robot.drive.drivezRobot(-Robot.oi.getJoystick1().getTwist(), Robot.oi.getJoystick1().getY(), Robot.oi.getJoystick1().getX());
     	
     	// Competition mode (two joystick)
     	//Robot.drive.drivezRobot(-Robot.oi.getJoystick1().getX(), Robot.oi.getJoystick1().getY(), Robot.oi.getJoystick2().getX());

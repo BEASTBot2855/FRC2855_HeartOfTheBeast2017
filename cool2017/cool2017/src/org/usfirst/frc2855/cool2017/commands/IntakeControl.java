@@ -15,9 +15,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2855.cool2017.Robot;
 
 /**
- * spins motor for ball intake mechanism
- * can spin at different speeds/directions based on the value sent from oi
- * when the command is created
+ * Spins motor for ball intake mechanism and stops when interrupted
+ * 
+ * Can spin at different speeds/directions based on the value sent from OI
+ * 	when the command is created
+ * 
+ * Also calls functions to turn on intake LED animations
  */
 public class IntakeControl extends Command {
 

@@ -86,7 +86,10 @@ public class Robot extends IterativeRobot {
         //(which it very likely will), subsystems are not guaranteed to be
         // constructed yet. Thus, their requires() statements may grab null
         // pointers. Bad news. Don't move it.
-        oi = new OI();
+        
+        // To switch modes, comment out one line and uncomment the other.
+        oi = new OICompetition();
+        //oi = new OIDemo();
 
         // instantiate the command used for the autonomous period
         autonomousCommand = new AutoGearCommandGroup();
