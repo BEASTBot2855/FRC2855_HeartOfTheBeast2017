@@ -1,6 +1,8 @@
 package org.usfirst.frc2855.cool2017.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc2855.cool2017.RobotMap;
 import org.usfirst.frc2855.cool2017.Robot;
 
@@ -17,6 +19,7 @@ public class GearIn extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	SmartDashboard.putString("Gear Arm Status", "Retracted");
     }
 
     // Called repeatedly when this Command is scheduled to run

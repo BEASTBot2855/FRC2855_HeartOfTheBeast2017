@@ -120,6 +120,7 @@ public class RobotMap {
         driverightreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
         
+        
         /* This is to try running 18v to motors (probably won't work)
         
         driveleftreartalon = new CANTalon(4);
@@ -148,6 +149,7 @@ public class RobotMap {
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
         driverightreartalon2.configPeakOutputVoltage(+18.0, -18.0);
         */
+        
         
         // creates drivetrain object and passes all motor controllers to object
         driveRobotDrive41 = new SixMotorDrive(driveleftfronttalon, driveleftreartalon,
