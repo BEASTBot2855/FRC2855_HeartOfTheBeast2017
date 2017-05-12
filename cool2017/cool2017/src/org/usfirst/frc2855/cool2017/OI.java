@@ -95,7 +95,7 @@ public class OI {
         // runs gear autonomous
         SmartDashboard.putData("Run Auto", new AutoGearCommandGroup());
         // runs climber backwards
-        SmartDashboard.putData("Unclimb", new Unclimb());
+        SmartDashboard.putData("Reentry", new reentry());
         // resets gyroscope
         SmartDashboard.putData("Calibrate Gyro", new calibrateSpinnySensor());
     }

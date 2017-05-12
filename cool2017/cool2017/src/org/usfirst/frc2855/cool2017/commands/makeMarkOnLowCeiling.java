@@ -22,10 +22,10 @@ import org.usfirst.frc2855.cool2017.RobotMap;
  * 
  * Also calls function to turn on shooting LED animation
  */
-public class MakeMarkOnLowCeiling extends Command {
+public class makeMarkOnLowCeiling extends Command {
 	private double shooterSpeed=75;
 
-    public MakeMarkOnLowCeiling() {
+    public makeMarkOnLowCeiling() {
 
        requires(Robot.ceilingmarker);
 

@@ -54,12 +54,12 @@ public class OICompetition extends OI {
 	public Joystick joystick1;
 	public Joystick joystick2;
 	
-	public JoystickButton climbButton;
+	public JoystickButton fly;
     
 	public JoystickButton ballOut;
     public JoystickButton ballin;
     
-    public JoystickButton shooterbutton;
+    public JoystickButton createmark;
     
     public JoystickButton gearout;
     public JoystickButton gearin;
@@ -98,10 +98,10 @@ public class OICompetition extends OI {
          * Makes Mark on Ceiling
          */
         
-        shooterbutton = new JoystickButton(joystick2, 2);
+        createmark = new JoystickButton(joystick2, 2);
         
-        shooterbutton.whileHeld(new MakeMarkOnLowCeiling());
-        SmartDashboard.putData("Spin shooter", new MakeMarkOnLowCeiling());
+        createmark.whileHeld(new makeMarkOnLowCeiling());
+        SmartDashboard.putData("Spin shooter", new makeMarkOnLowCeiling());
         
         
         
@@ -168,13 +168,13 @@ public class OICompetition extends OI {
         
         
         /**
-         * Runs climber
+         * Enables flight mode
          */
         
-        climbButton = new JoystickButton(joystick1, 5);
+        fly = new JoystickButton(joystick1, 5);
         
-        climbButton.whileHeld(new climb());
-        SmartDashboard.putData("Climb", new climb());
+        fly.whileHeld(new makeDaRobotFly());
+        SmartDashboard.putData("Climb", new makeDaRobotFly());
         
         
         

@@ -16,7 +16,7 @@ public class calibrateSpinnySensor extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drive.calibrateSpinnySensor();
+    	Robot.movedarobot.calibrateSpinnySensor();
     }
 
     // Called repeatedly when this Command is scheduled to run

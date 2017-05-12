@@ -36,9 +36,9 @@ public class Robot extends IterativeRobot {
 
     public static OI oi;
     public static ballintake ballintake;
-    public static CeilingMarker ceilingmarker;
-    public static drive drive;
-    public static climbingarm climbingarm;
+    public static ceilingMarker ceilingmarker;
+    public static moveDaRobot movedarobot;
+    public static flightMode flightmode;
     public static PneumaticGearArm geararm;
     public static PneumaticGearPinch gearpinch;
     public static LEDArduino leds;
@@ -57,13 +57,13 @@ public class Robot extends IterativeRobot {
         ballintake = new ballintake();
         
         // creates new shooter subsystem object
-        ceilingmarker = new CeilingMarker();
+        ceilingmarker = new ceilingMarker();
         
         // creates new drive subsystem object
-        drive = new drive();
+        movedarobot = new moveDaRobot();
         
         // creates new climber subsystem object
-        climbingarm = new climbingarm();
+        flightmode = new flightMode();
         
         // creates new gear arm solenoid subsystem object
         geararm = new PneumaticGearArm();

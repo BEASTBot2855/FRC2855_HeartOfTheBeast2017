@@ -13,16 +13,16 @@ package org.usfirst.frc2855.cool2017.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc2855.cool2017.Robot;
-import org.usfirst.frc2855.cool2017.subsystems.climbingarm;
+import org.usfirst.frc2855.cool2017.subsystems.flightMode;
 
 /**
- * spins them motor to make the robot climb the rope and stops climber when interrupted
+ * activates flight
  */
-public class climb extends Command {
+public class makeDaRobotFly extends Command {
 
-    public climb() {
+    public makeDaRobotFly() {
 
-        requires(Robot.climbingarm);
+        requires(Robot.flightmode);
 
     }
 
@@ -33,7 +33,7 @@ public class climb extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climbingarm.climberActivate();
+    	Robot.flightmode.launchSequence();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -43,7 +43,7 @@ public class climb extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.climbingarm.climberStop();
+    	Robot.flightmode.atCruisingAltitude();
     }
 
     // Called when another command which requires one or more of the same
