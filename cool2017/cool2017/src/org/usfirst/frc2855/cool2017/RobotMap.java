@@ -42,7 +42,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class RobotMap {
     public static SpeedController ballintakeintaketalon;
     
-    public static CANTalon shooterTalon;
+    public static CANTalon MakesMarksOnLowCeilings;
     
     public static CANTalon driveleftreartalon;
     public static CANTalon driveleftreartalon2;
@@ -54,7 +54,7 @@ public class RobotMap {
     
     public static SpeedController climbingarmclimbingmotor;
     
-    public static SpeedController agitator;
+    public static SpeedController FischerAnnoyer;
     
     public static CameraServer camera;
     
@@ -63,7 +63,7 @@ public class RobotMap {
     public static DoubleSolenoid gearInOutSolenoid;
     public static DoubleSolenoid gearPinchSolenoid;
     
-    public static ADXRS453Gyro gyro;
+    public static ADXRS453Gyro SpinnySensor;
     
     public static DigitalOutput ledshooter;
     public static DigitalOutput ledintake;
@@ -78,18 +78,18 @@ public class RobotMap {
     	// starts cameras
     	CameraServer.getInstance().startAutomaticCapture();
     	
-    	// sets agitator Talon SR to PWM port 4
-        agitator = new Talon(4);
-        LiveWindow.addActuator("agitator", "agitator", (Talon) agitator);
+    	// tells the RoboRIO that the FischerAnnoyer is controlled by a Talon SR on PWM 4
+        FischerAnnoyer = new Talon(4);
+        LiveWindow.addActuator("agitator", "agitator", (Talon) FischerAnnoyer);
         
         // sets intake Talon SR to PWM port 5
         ballintakeintaketalon = new Talon(5);
         LiveWindow.addActuator("ball intake", "intake talon", (Talon) ballintakeintaketalon);
         
         
-        // sets shooter Talon SRX to Talon SRX at CAN ID 7 
-        shooterTalon = new CANTalon(7);
-        LiveWindow.addActuator("shooter", "shooter talon", shooterTalon);
+        // tells the RoboRIO that to make a mark on the ceiling, it needs to contact the Talon SRX with ID 7
+        MakesMarksOnLowCeilings = new CANTalon(7);
+        LiveWindow.addActuator("shooter", "shooter talon", MakesMarksOnLowCeilings);
         
         
         // sets drivetrain Talon SRX for back left MiniCIM furthest from intake to Talon SRX at CAN ID 4
@@ -184,20 +184,20 @@ public class RobotMap {
         // creates new ultrasonic object at PWM 8 and 9
         Ultrasonic = new edu.wpi.first.wpilibj.Ultrasonic(8, 9);
         
-        // sets the type of the sensor that is plugged into the shooter Talon SRX 
-        shooterTalon.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+        // sets the type of the sensor that is plugged into the MakesMarksOnLowCeilings Talon SRX 
+        MakesMarksOnLowCeilings.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
         // sets if the sensor is running in reverse (not sure exactly how to explain it)
-        shooterTalon.reverseSensor(false);
+        MakesMarksOnLowCeilings.reverseSensor(false);
         // sets minimum output voltage for each direction when in closed-loop modes
-        shooterTalon.configNominalOutputVoltage(+0.0f, -0.0f);
+        MakesMarksOnLowCeilings.configNominalOutputVoltage(+0.0f, -0.0f);
         // sets maximum output voltage for each direction when in closed-loop modes and only allows it to run forwards
-        shooterTalon.configPeakOutputVoltage(+12.0f, -0.0f);
+        MakesMarksOnLowCeilings.configPeakOutputVoltage(+12.0f, -0.0f);
         // sets which set of values to use from preset 'profiles' that are set in the Web Dashboard (there are two profiles, 0 & 1)
-        shooterTalon.setProfile(0);
+        MakesMarksOnLowCeilings.setProfile(0);
         
         
-        // creates new gyro object
-        gyro = new ADXRS453Gyro();
+        // creates new SpinnySensor object
+        SpinnySensor = new ADXRS453Gyro();
 
         // creates new DIO output object for DIO 1
         ledshooter = new DigitalOutput(1);

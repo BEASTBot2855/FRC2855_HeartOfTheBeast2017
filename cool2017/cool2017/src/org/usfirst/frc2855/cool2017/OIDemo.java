@@ -95,13 +95,13 @@ public class OIDemo extends OI {
         
         
         /**
-         * Spins shooter
+         * Makes Mark on Ceiling
          */
         
         shooterbutton = new JoystickButton(joystick2, 1);
         
-        shooterbutton.whileHeld(new spinshooter());
-        SmartDashboard.putData("Spin shooter", new spinshooter());
+        shooterbutton.whileHeld(new MakeMarkOnLowCeiling());
+        SmartDashboard.putData("Spin shooter", new MakeMarkOnLowCeiling());
         
         
         

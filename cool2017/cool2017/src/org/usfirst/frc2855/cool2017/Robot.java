@@ -36,7 +36,7 @@ public class Robot extends IterativeRobot {
 
     public static OI oi;
     public static ballintake ballintake;
-    public static shooter shooter;
+    public static CeilingMarker ceilingmarker;
     public static drive drive;
     public static climbingarm climbingarm;
     public static PneumaticGearArm geararm;
@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot {
         ballintake = new ballintake();
         
         // creates new shooter subsystem object
-        shooter = new shooter();
+        ceilingmarker = new CeilingMarker();
         
         // creates new drive subsystem object
         drive = new drive();
@@ -122,8 +122,8 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         
-        // turns on agitator
-        RobotMap.agitator.set(1);
+        // enables the FischerAnnoyer
+        RobotMap.FischerAnnoyer.set(1);
         
         // puts FPGA time on SmartDashboard
         SmartDashboard.putNumber("Match Time", Timer.getFPGATimestamp());
@@ -143,8 +143,8 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        // runs agitator
-        RobotMap.agitator.set(1);
+        // enables the FischerAnnoyer
+        RobotMap.FischerAnnoyer.set(1);
         
         // puts FPGA time on SmartDashboard
         SmartDashboard.putNumber("Match Time", Timer.getFPGATimestamp());

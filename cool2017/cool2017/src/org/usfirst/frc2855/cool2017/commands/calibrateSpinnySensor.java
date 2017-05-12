@@ -5,18 +5,18 @@ import org.usfirst.frc2855.cool2017.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * resets gyroscope to 0
+ *
  */
-public class calibrateGyro extends Command {
+public class calibrateSpinnySensor extends Command {
 
-    public calibrateGyro() {
+    public calibrateSpinnySensor() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drive.calibrateGyro();
+    	Robot.drive.calibrateSpinnySensor();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -22,12 +22,12 @@ import org.usfirst.frc2855.cool2017.RobotMap;
  * 
  * Also calls function to turn on shooting LED animation
  */
-public class spinshooter extends Command {
+public class MakeMarkOnLowCeiling extends Command {
 	private double shooterSpeed=75;
 
-    public spinshooter() {
+    public MakeMarkOnLowCeiling() {
 
-       requires(Robot.shooter);
+       requires(Robot.ceilingmarker);
 
        
     }
@@ -38,11 +38,11 @@ public class spinshooter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.shooterActivate(((Robot.oi.joystick2.getThrottle()+1)/2)*100);
+    	Robot.ceilingmarker.MarkCeiling(((Robot.oi.joystick2.getThrottle()+1)/2)*100);
     	Robot.leds.LEDShooterActivate();
-    	SmartDashboard.putNumber("Shooter Velocity", RobotMap.shooterTalon.getSpeed());
-    	SmartDashboard.putNumber("Shooter vBus", RobotMap.shooterTalon.getOutputVoltage());
-    	SmartDashboard.putNumber("Shooter Amperage", RobotMap.shooterTalon.getOutputCurrent());
+    	SmartDashboard.putNumber("Shooter Velocity", RobotMap.MakesMarksOnLowCeilings.getSpeed());
+    	SmartDashboard.putNumber("Shooter vBus", RobotMap.MakesMarksOnLowCeilings.getOutputVoltage());
+    	SmartDashboard.putNumber("Shooter Amperage", RobotMap.MakesMarksOnLowCeilings.getOutputCurrent());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -52,7 +52,7 @@ public class spinshooter extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooter.shooterActivate(0);
+    	Robot.ceilingmarker.MarkCeiling(0);
     	Robot.leds.LEDShooterDeActivate();
     }
 
