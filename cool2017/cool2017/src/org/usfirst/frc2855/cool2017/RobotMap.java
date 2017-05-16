@@ -52,7 +52,7 @@ public class RobotMap {
     public static CANTalon driverightreartalon2;
     public static SixMotorDrive driveRobotDrive41;
     
-    public static SpeedController climbingarmclimbingmotor;
+    public static SpeedController flightenabler;
     
     public static SpeedController FischerAnnoyer;
     
@@ -121,35 +121,6 @@ public class RobotMap {
         LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
         
         
-        /* This is to try running 18v to motors (probably won't work)
-        
-        driveleftreartalon = new CANTalon(4);
-        LiveWindow.addActuator("drive", "left rear talon", driveleftreartalon);
-        driveleftreartalon.configPeakOutputVoltage(+18.0, -18.0);
-        
-        driveleftreartalon2 = new CANTalon(1);
-        driveleftreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
-        LiveWindow.addActuator("drive", "left rear talon2", driveleftreartalon2);
-        driveleftreartalon2.configPeakOutputVoltage(+18.0, -18.0);
-        
-        driveleftfronttalon = new CANTalon(5);
-        LiveWindow.addActuator("drive", "left front talon", driveleftfronttalon);
-        driveleftfronttalon.configPeakOutputVoltage(+18.0, -18.0);
-        
-        driverightfronttalon = new CANTalon(8);
-        LiveWindow.addActuator("drive", "right front talon", driverightfronttalon);
-        driverightfronttalon.configPeakOutputVoltage(+18.0, -18.0);
-        
-        driverightreartalon = new CANTalon(6);
-        LiveWindow.addActuator("drive", "right rear talon", driverightreartalon);
-        driverightreartalon.configPeakOutputVoltage(+18.0, -18.0);
-       
-        driverightreartalon2 = new CANTalon(3);
-        driverightreartalon2.setControlMode(CANTalon.TalonControlMode.Follower.getValue());
-        LiveWindow.addActuator("drive", "right rear talon2", driverightreartalon2);
-        driverightreartalon2.configPeakOutputVoltage(+18.0, -18.0);
-        */
-        
         
         // creates drivetrain object and passes all motor controllers to object
         driveRobotDrive41 = new SixMotorDrive(driveleftfronttalon, driveleftreartalon,
@@ -168,9 +139,9 @@ public class RobotMap {
         driveRobotDrive41.setInvertedMotor(SixMotorDrive.MotorType.kFrontRight, true);
         driveRobotDrive41.setInvertedMotor(SixMotorDrive.MotorType.kFrontLeft, true);
         
-        // sets climber Talon SR to PWM 6 
-        climbingarmclimbingmotor = new Talon(6);
-        LiveWindow.addActuator("climbing arm", "climbing motor", (Talon) climbingarmclimbingmotor);
+        // sets flight Talon SR to PWM 6 
+        flightenabler = new Talon(6);
+        LiveWindow.addActuator("climbing arm", "climbing motor", (Talon) flightenabler);
         
         // sets gear arm solenoid to ports 0 and 1 on PCM 0
         gearInOutSolenoid = new DoubleSolenoid(0, 0, 1);
