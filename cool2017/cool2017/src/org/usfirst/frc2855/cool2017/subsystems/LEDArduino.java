@@ -12,7 +12,7 @@ public class LEDArduino extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	private final DigitalOutput shooter = RobotMap.ledshooter;
+	private final DigitalOutput marker = RobotMap.ledmarker;
 	private final DigitalOutput intake = RobotMap.ledintake;
 	private final DigitalOutput flash = RobotMap.ledflash;
 	private final DigitalOutput breathe = RobotMap.ledbreathe;
@@ -22,8 +22,8 @@ public class LEDArduino extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void LEDShooterActivate() { //DIO 1
-    	shooter.set(true);
+    public void LEDMarkerActivate() { //DIO 1
+    	marker.set(true);
     }
     
     public void LEDIntakeActivate() { //DIO 2
@@ -38,8 +38,8 @@ public class LEDArduino extends Subsystem {
     	breathe.set(true);
     }
     
-    public void LEDShooterDeActivate() { //DIO 1
-    	shooter.set(false);
+    public void LEDMarkerDeActivate() { //DIO 1
+    	marker.set(false);
     }
     
     public void LEDIntakeDeActivate() { //DIO 2

@@ -18,9 +18,9 @@ import org.usfirst.frc2855.cool2017.Robot;
 import org.usfirst.frc2855.cool2017.RobotMap;
 
 /**
- * default command for robot drive
+ * default command for movement
  * polls continuously fetches values from joysticks
- * and uses them to drive robot
+ * and uses them to move robot
  */
 public class relocaterobot extends Command {
 

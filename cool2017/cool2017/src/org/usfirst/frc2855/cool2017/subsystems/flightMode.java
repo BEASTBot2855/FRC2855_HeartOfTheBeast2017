@@ -13,7 +13,6 @@ package org.usfirst.frc2855.cool2017.subsystems;
 
 import org.usfirst.frc2855.cool2017.RobotMap;
 import org.usfirst.frc2855.cool2017.commands.*;
-import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 
 import edu.wpi.first.wpilibj.command.Subsystem;

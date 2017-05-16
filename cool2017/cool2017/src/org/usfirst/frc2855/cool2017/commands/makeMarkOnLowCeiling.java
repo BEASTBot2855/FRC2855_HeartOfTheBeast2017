@@ -18,12 +18,12 @@ import org.usfirst.frc2855.cool2017.Robot;
 import org.usfirst.frc2855.cool2017.RobotMap;
 
 /**
- * Spins shooter and stops when interrupted
+ * Spins ceiling marker and stops when interrupted
  * 
- * Also calls function to turn on shooting LED animation
+ * Also calls function to turn on corresponding LED animation
  */
 public class makeMarkOnLowCeiling extends Command {
-	private double shooterSpeed=75;
+	
 
     public makeMarkOnLowCeiling() {
 
@@ -39,10 +39,10 @@ public class makeMarkOnLowCeiling extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.ceilingmarker.MarkCeiling(((Robot.oi.joystick2.getThrottle()+1)/2)*100);
-    	Robot.leds.LEDShooterActivate();
-    	SmartDashboard.putNumber("Shooter Velocity", RobotMap.MakesMarksOnLowCeilings.getSpeed());
-    	SmartDashboard.putNumber("Shooter vBus", RobotMap.MakesMarksOnLowCeilings.getOutputVoltage());
-    	SmartDashboard.putNumber("Shooter Amperage", RobotMap.MakesMarksOnLowCeilings.getOutputCurrent());
+    	Robot.leds.LEDMarkerActivate();
+    	SmartDashboard.putNumber("Marker Velocity", RobotMap.MakesMarksOnLowCeilings.getSpeed());
+    	SmartDashboard.putNumber("Marker vBus", RobotMap.MakesMarksOnLowCeilings.getOutputVoltage());
+    	SmartDashboard.putNumber("Marker Amperage", RobotMap.MakesMarksOnLowCeilings.getOutputCurrent());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -53,7 +53,7 @@ public class makeMarkOnLowCeiling extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.ceilingmarker.MarkCeiling(0);
-    	Robot.leds.LEDShooterDeActivate();
+    	Robot.leds.LEDMarkerDeActivate();
     }
 
     // Called when another command which requires one or more of the same

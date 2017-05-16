@@ -21,9 +21,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * launches balls into the air
  * planning to make a second version using a speed PID
- * to keep shooter wheel speed constants
+ * to keep wheel speed constants
  * 
- * semi-complete (see above)
  */
 public class ceilingMarker extends Subsystem {
 

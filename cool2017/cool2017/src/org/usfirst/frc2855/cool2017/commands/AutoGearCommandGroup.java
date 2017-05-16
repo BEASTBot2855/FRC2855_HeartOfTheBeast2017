@@ -1,11 +1,10 @@
 package org.usfirst.frc2855.cool2017.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  * Auto command for placing gear on peg
- * Drives, turns, drives, releases gear, drives away
+ * Moves, turns, moves, releases gear, drives away
  */
 public class AutoGearCommandGroup extends CommandGroup {
 

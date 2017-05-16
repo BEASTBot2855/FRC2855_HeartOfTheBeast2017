@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * drives robot away from airship (intake side) for 1 second, then stops the robot
+ * moves robot away from airship (intake side) for 1 second, then stops the robot
  */
 public class AutoReverse extends Command {
 

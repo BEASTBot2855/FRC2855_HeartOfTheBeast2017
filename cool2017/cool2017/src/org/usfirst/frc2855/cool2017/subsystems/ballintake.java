@@ -14,13 +14,13 @@ package org.usfirst.frc2855.cool2017.subsystems;
 import org.usfirst.frc2855.cool2017.RobotMap;
 import org.usfirst.frc2855.cool2017.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 /**
  * picks up stray fuel balls off the ground
+ * or shoots them at opponents along the ground
  */
 public class ballintake extends Subsystem {
 

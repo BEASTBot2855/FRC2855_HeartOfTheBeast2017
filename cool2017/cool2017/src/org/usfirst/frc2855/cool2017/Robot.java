@@ -56,13 +56,13 @@ public class Robot extends IterativeRobot {
     	// creates new intake subsystem object
         ballintake = new ballintake();
         
-        // creates new shooter subsystem object
+        // creates new marker subsystem object
         ceilingmarker = new ceilingMarker();
         
-        // creates new drive subsystem object
+        // creates new movement subsystem object
         movedarobot = new moveDaRobot();
         
-        // creates new climber subsystem object
+        // creates new flight subsystem object
         flightmode = new flightMode();
         
         // creates new gear arm solenoid subsystem object
