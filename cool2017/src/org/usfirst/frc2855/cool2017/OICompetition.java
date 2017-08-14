@@ -98,7 +98,7 @@ public class OICompetition extends OI {
          * Makes Mark on Ceiling
          */
         
-        createmark = new JoystickButton(joystick2, 2);
+        createmark = new JoystickButton(joystick1, 1);
         
         createmark.whileHeld(new makeMarkOnLowCeiling());
         SmartDashboard.putData("Spin shooter", new makeMarkOnLowCeiling());
@@ -109,7 +109,7 @@ public class OICompetition extends OI {
          * Runs intake to pull fuel in
          */
         
-        ballin = new JoystickButton(joystick1, 3);
+        ballin = new JoystickButton(joystick1, 4);
         
         ballin.whileHeld(new IntakeControl(1));
         SmartDashboard.putData("Intake Control: ballIn", new IntakeControl(1));
@@ -120,7 +120,7 @@ public class OICompetition extends OI {
          * Runs intake to push fuel out
          */
         
-        ballOut = new JoystickButton(joystick1, 6);
+        ballOut = new JoystickButton(joystick1, 5);
         
         ballOut.whileHeld(new IntakeControl(-1));
         SmartDashboard.putData("Intake Control: ballOut", new IntakeControl(-1));
@@ -131,7 +131,7 @@ public class OICompetition extends OI {
          *  Activates solenoid to retract cylinder in arm
          */
         
-        gearpinch = new JoystickButton(joystick2, 4);
+        gearpinch = new JoystickButton(joystick2, 1);
         
         gearpinch.whenPressed(new GearPinch());
         
@@ -141,7 +141,7 @@ public class OICompetition extends OI {
          * Activates solenoid to extend cylinder in arm
          */
         
-        gearrelease = new JoystickButton(joystick2, 1);
+        gearrelease = new JoystickButton(joystick2, 2);
         
         gearrelease.whenPressed(new GearRelease());
         
@@ -151,7 +151,7 @@ public class OICompetition extends OI {
          * Activates solenoid to retract cylinder moving arm
          */
         
-        gearin = new JoystickButton(joystick1, 1);
+        gearin = new JoystickButton(joystick1, 3);
         
         gearin.whileHeld(new GearIn());
         
@@ -171,7 +171,7 @@ public class OICompetition extends OI {
          * Enables flight mode
          */
         
-        fly = new JoystickButton(joystick1, 5);
+        fly = new JoystickButton(joystick2, 3);
         
         fly.whileHeld(new makeDaRobotFly());
         SmartDashboard.putData("Climb", new makeDaRobotFly());
@@ -192,7 +192,7 @@ public class OICompetition extends OI {
          * Sets a DIO port to HIGH to signal microcontroller to make LEDs "breathe"
          */
         
-        ledbreathe = new JoystickButton(joystick1, 8);
+        ledbreathe = new JoystickButton(joystick1, 6);
         
         ledbreathe.whileHeld(new LEDBreathe());
     }
