@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     public static ballintake ballintake;
     public static ceilingMarker ceilingmarker;
-    public static moveDaRobot movedarobot;
+    public static moveDaRobot drive;
     public static flightMode flightmode;
     public static PneumaticGearArm geararm;
     public static PneumaticGearPinch gearpinch;
@@ -60,7 +60,7 @@ public class Robot extends IterativeRobot {
         ceilingmarker = new ceilingMarker();
         
         // creates new movement subsystem object
-        movedarobot = new moveDaRobot();
+       drive = new moveDaRobot();
         
         // creates new flight subsystem object
         flightmode = new flightMode();
