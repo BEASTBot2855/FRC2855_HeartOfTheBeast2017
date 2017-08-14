@@ -23,7 +23,7 @@ public class AutoTurn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.movedarobot.turnLeft();
+    	Robot.drive.turnLeft();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +33,7 @@ public class AutoTurn extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.movedarobot.stop();
+    	Robot.drive.stop();
     }
 
     // Called when another command which requires one or more of the same
