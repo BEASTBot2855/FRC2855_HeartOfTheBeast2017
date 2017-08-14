@@ -16,7 +16,7 @@ public class calibrateGyro extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.movedarobot.calibrateGyro();
+    	Robot.drive.calibrateGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
